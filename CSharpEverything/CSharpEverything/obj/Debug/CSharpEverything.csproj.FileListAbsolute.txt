@@ -1,0 +1,4 @@
+c:\users\jwoo\documents\visual studio 2013\Projects\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.dll
+c:\users\jwoo\documents\visual studio 2013\Projects\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.pdb
+c:\users\jwoo\documents\visual studio 2013\Projects\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.dll
+c:\users\jwoo\documents\visual studio 2013\Projects\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.pdb
