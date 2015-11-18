@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="Trampoline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Locking.cs" />
+    <Compile Include="Mutex.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
