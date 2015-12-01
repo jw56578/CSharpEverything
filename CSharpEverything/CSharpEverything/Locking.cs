@@ -35,6 +35,15 @@ namespace CSharpEverything
             Thread.Sleep(1000);
             DivideLockLock();
         }
+        /// <summary>
+        /// semaphoreslim is the same as monitor except it allows you to specify that a certain number of threads can access the code
+        /// </summary>
+        [TestMethod]
+        public void TestSemaphoreSlim()
+        {
+            SemaphoreSlim ss = new SemaphoreSlim(1, 1);
+            
+        }
         static int num1 = 0;
         static int num2 = 0;
         static Random random = new Random();

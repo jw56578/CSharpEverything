@@ -1,0 +1,5 @@
+﻿How do you represent the Types whose only purpose is to do something, not store state.
+the service interface pattern is one example of this. You use "services" to represent the Types that do work as opposed to Types that just store information
+Person vs PersonService
+
+how would you simply organize things that need to exist per process i.e static
