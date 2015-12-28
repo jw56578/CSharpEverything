@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,8 @@ gets the specific type
 */
     public abstract class BaseEntity
     {
-        public abstract Int32 TypeId{ get; set; }
-        public abstract IRepo GetRepo();
+       // public abstract Int32 TypeId{ get; set; }
+       // public abstract IRepo repo();
     }
  
     /// <summary>
@@ -46,72 +47,49 @@ gets the specific type
     /// </summary>
     public static class RepoMappings
     {
-        public static IRepo[] mappings;
+        public static IRepo<BaseEntity>[] mappings;
         static RepoMappings()
         {
-            mappings = new IRepo[10];
-            mappings[0] = new PersonRepo();
+            mappings = new IRepo<BaseEntity>[10];
+            //is doing this casting okay since it only happens once per app domain?
+            //this cast does not work
+            mappings[0] = new PersonRepo() as IRepo<BaseEntity>;
             /*
             find all baseclass entities
             assign the ids incrementally
             then get the repository from it itself
             then assign the same id
 
+            //just use dictionary with string name of type since it will be cached 
+
             */
         }
     }
-    /// <summary>
-    /// how do static constructors work with generics
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class ArrayDataService<T> where T : BaseEntity,new()
+  
+ 
+    public interface IRepo<T> where T :BaseEntity
     {
-        static IRepo repo;
-        static ArrayDataService()
-        {
-            var myType = typeof(T);
-            var mytypeName = myType.Name;
-            repo = RepoMappings.mappings[0];
-        }
-
-        public void Get(IEntityCollection<BaseEntity,BaseEntity> collection)
-        { 
-            //does the typeof itself make is slow or is it accessing the dictionary
-            repo.Get(collection);
-            //i believe this cast is causing performance issues
-            //nothing can be done about this as the repo itself returns IEnumerable of object, not the specific type
-            //how can we get rid of any casting
-            //why does this need to be cast as stuff is an IEnuberable of what T is contrained to
-            //return stuff as  IEnumerable<T>;
-
-            //covariance is not working for anything 
-
-        }
+        void Get(IEntityCollection<BaseEntity> collection);
     }
-    public class PersonSpecificDataService<T> where T : BaseEntity, new()
+    public class PersonRepo :IRepo<Person>
     {
-        static IRepo repo;
-        static PersonSpecificDataService()
-        {
-
-            repo = new PersonRepo();
-        }
-        public void Get(List<BaseEntity> collection)
-        {
-            collection.Add(new Person());
-
-        }
-    }
-    public interface IRepo
-    {
-       void Get(IEntityCollection<BaseEntity,BaseEntity> collection);
-    }
-    public class PersonRepo :IRepo
-    {
-        //why can't this return value
-        public void Get(IEntityCollection<BaseEntity,BaseEntity> collection)
+        public void Get(IEntityCollection<BaseEntity> collection)
         {
             var p = new Person();
+            collection.Add(p);
+        }
+
+        public void Get(EntityCollection<BaseEntity> collection)
+        {
+            var p = new Person();
+            collection.Add(p);
+        }
+
+        //why can't this return value
+        public void Get(IEntityCollection<Person> collection)
+        {
+            var p = new Person();
+            collection.Add(p);
            
            
         }

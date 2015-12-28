@@ -58,14 +58,11 @@ namespace Test
         void ExecuteArrayGenericRepo()
         {
             var p = new ArrayDataService<Person>();
-            IEntityCollection<BaseEntity, BaseEntity> personCollection = null;// = new EntityCollection<Person,Person>();
+            IEntityCollection<BaseEntity> personCollection = null;// = new EntityCollection<Person,Person>();
             for (int i = 0; i < tries; i++)
             {
-                p.Get(personCollection);
-                foreach (var thing in personCollection)
-                {
-
-                }
+               // p.Get(personCollection);
+             
             }
         }
     }
