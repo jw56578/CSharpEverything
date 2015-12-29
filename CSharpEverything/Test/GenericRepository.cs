@@ -16,10 +16,7 @@ namespace Test
                -- a Collection of BaseEntities sent to the Person repository which adds PersonEntities
             */
             //you can only use contravarience on intefaces so this can never be cast to a class type on the left sid
-            IEntityCollection<BaseEntity> p = new PersonCollection() as IEntityCollection<BaseEntity>;
-            //arraydataservice needs a generic parameter so that it can dynamically know which repo to use based on type name
-            var ds = new ArrayDataService<Person>();
-            ds.Get(p);
+         
 
         }
 

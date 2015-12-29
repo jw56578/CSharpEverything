@@ -4,6 +4,5 @@ c:\users\jwoo\documents\visual studio 2013\Projects\CSharpEverything\CSharpEvery
 c:\users\jwoo\documents\visual studio 2013\Projects\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.pdb
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.dll
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.pdb
-C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.csprojResolveAssemblyReference.cache
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.dll
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.pdb

@@ -27,8 +27,6 @@ namespace ConsoleClient
         public InputService()
         {
             commands.Add("people", new ListPeopleCommand());
-
-
         }
         public void Take(string input)
         {
@@ -37,9 +35,7 @@ namespace ConsoleClient
             {
                 cmd.Execute();
             }
-
         }
-
     }
     public interface ICommand
     {
@@ -49,12 +45,12 @@ namespace ConsoleClient
     {
         public void Execute()
         {
-            //var ds = new ArrayDataService<Person>();
-            //var people = ds.Get();
-            //foreach (var p in people)
-            //{
-            //    Console.WriteLine(p.FirstName);
-            //}
+            var service = new DataService<Person>();
+            List<Person> people = new List<Person>();
+            service.Fill(people);
+            foreach (var person in people) {
+                Console.WriteLine(person.FirstName);
+            }
         }
     }
 

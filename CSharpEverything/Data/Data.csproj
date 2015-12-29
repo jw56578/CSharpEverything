@@ -39,11 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayDataService.cs" />
+    <Compile Include="DataService.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="EntityCollection.cs" />
     <Compile Include="IEntityCollection.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Repository\Person.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
