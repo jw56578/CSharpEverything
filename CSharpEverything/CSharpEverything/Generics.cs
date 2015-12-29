@@ -49,6 +49,7 @@ namespace CSharpEverything
             //what is the point of contra variance if this doesn't work:
             //IBaseContraVarianceThing<string> test4 = new List<ImplementedContraVarianceThing<string>>();
 
+            //this stuff has nothing to do with method signature, you can't send a derived type into a method taking a base type
 
 
         }

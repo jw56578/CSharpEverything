@@ -58,6 +58,8 @@
     <Compile Include="Locking.cs" />
     <Compile Include="Mutex.cs" />
     <Compile Include="Generics.cs" />
+    <Compile Include="GenericDelegates.cs" />
+    <Compile Include="SimpleGenericRepository.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
