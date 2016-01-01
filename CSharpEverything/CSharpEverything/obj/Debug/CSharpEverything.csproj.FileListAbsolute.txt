@@ -6,3 +6,4 @@ C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpE
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.pdb
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.dll
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.pdb
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.csprojResolveAssemblyReference.cache

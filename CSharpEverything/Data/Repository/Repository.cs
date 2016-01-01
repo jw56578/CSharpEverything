@@ -6,30 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Repository
+namespace Data
 {
-    public static class RepositoryMapper
-    {
-        static Dictionary<string, object> Maps = new Dictionary<string, object>();
-        static RepositoryMapper()
-        {
-            Maps.Add("Data.Person", new PersonRepository());
-        }
-        public static object GetMap(string key)
-        {
-            return Maps[key];
-        }
-
-    }
+   
     public interface IRepository<T>
     {
         void Fill(List<T> collection);
+        T Get(int id);
+        void Save(T entity);
     }
-    public class Filler : IRepository<object>
+    //what if you needed to add a method to the interface after it was already created
+    //create new interface inheriting from base one and all new Types can use that one
+    public interface IRepositoryWithDelete<T>:IRepository<T>
     {
-        public void Fill(List<object> colleciton)
-        {
-
-        }
+        void Delete(T entity);
     }
+
 }

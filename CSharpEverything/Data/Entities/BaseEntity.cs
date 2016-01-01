@@ -10,5 +10,6 @@ namespace Data
     {
         // public abstract Int32 TypeId{ get; set; }
         // public abstract IRepo repo();
+        
     }
 }

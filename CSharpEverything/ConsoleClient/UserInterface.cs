@@ -1,9 +1,12 @@
 ﻿using Data;
+using Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using View;
+using View.Models;
 
 namespace ConsoleClient
 {
@@ -51,6 +54,14 @@ namespace ConsoleClient
             foreach (var person in people) {
                 Console.WriteLine(person.FirstName);
             }
+        }
+    }
+    public class VehicleDetailCommand : ICommand
+    {
+        public void Execute()
+        {
+            var ms = new ModelService<VehicleDetailModel>();
+            var vd = ms.Get(new ModelServiceArgs() { Id=1});
         }
     }
 

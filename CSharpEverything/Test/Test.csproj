@@ -69,7 +69,7 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoTest.cs" />
-    <Compile Include="UnitTest2.cs" />
+    <Compile Include="ORM\ORM.cs" />
     <Compile Include="GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +80,10 @@
     <ProjectReference Include="..\HowToBuildANewSystemFromScratch\HowToBuildANewSystemFromScratch.csproj">
       <Project>{32089015-9411-405d-a528-98d4eba30979}</Project>
       <Name>HowToBuildANewSystemFromScratch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ORM\ORM.csproj">
+      <Project>{13ebbcb0-a6da-453b-9bfc-7e633e455580}</Project>
+      <Name>ORM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{e5b996da-7525-475b-96c7-41ed32c800ac}</Project>
