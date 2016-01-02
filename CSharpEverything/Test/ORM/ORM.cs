@@ -20,12 +20,13 @@ namespace Test
             what should be responsible for getting things in the first place
             
             */
+            List<Person> people = new List<Person>();
 
-            var ds = new DataService<Person>()
+            new DataService<Person>()
                 .Include(Person.Relations.Addresses & Person.Relations.Emails)
                 .Where(Person.Fields.Id == 1 | Person.Fields.FirstName == "jon")
-                .Get(); //<Person>;
-
+                .Fill(people); //<Person>;
+            Assert.IsTrue(people.Count > 0);
            // ds.Where = PersonFields.Id == 1 | PersonFields.FirstName == "jon";
         }
     }

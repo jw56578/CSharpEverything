@@ -1,4 +1,5 @@
 ﻿using Data.Repository;
+using Data.Repository.Parse;
 using ORM;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace Data
     public class DataService<T>:IDataService<T> where T : new()
     {
         static string EntityName = typeof(T).Name;
+        //shit, this thing will have to be aware of a specific mapper implmentation
+        //need to have a mapper factory
+        //for now just let this thing be aware that we are using Parse
         static IRepository<T> f = RepositoryMapper.GetMap(typeof(T).FullName) as IRepository<T>;
        
         //need to have some instance field that maintain a reference to something from ORM to handle Relations and Predicate
@@ -41,13 +45,15 @@ namespace Data
         {
             f.Save(entity);
         }
-        public DataService<T> Where(Predicate where)
+        public DataService<T> Where(Field where)
         {
             //what the hell happens here
+            f.AddField(where);
             return this;
         }
         public DataService<T> Include(Relation where)
         {
+            f.AddRelation(where);
             return this;
         }
     }

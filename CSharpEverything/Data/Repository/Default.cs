@@ -48,5 +48,15 @@ namespace Data.Repository
         {
             throw new NotImplementedException();
         }
+
+        public void AddRelation(Relation relation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddField(Field field)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

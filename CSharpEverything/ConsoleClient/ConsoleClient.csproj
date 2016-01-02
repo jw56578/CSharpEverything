@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Parse, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Parse.1.6.2\lib\net45\Parse.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Parse.NetFx45, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Parse.1.6.2\lib\net45\Parse.NetFx45.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,11 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data.Parse\Data.Parse.csproj">
+      <Project>{8f601b57-476f-44f5-b3d5-34416638679b}</Project>
+      <Name>Data.Parse</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{cb024481-f1ce-4260-8ed3-3af1c2ff4144}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ORM\ORM.csproj">
+      <Project>{13ebbcb0-a6da-453b-9bfc-7e633e455580}</Project>
+      <Name>ORM</Name>
     </ProjectReference>
     <ProjectReference Include="..\View\View.csproj">
       <Project>{d016a496-a0d5-479c-a69c-87de00c1543c}</Project>

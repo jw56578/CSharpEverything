@@ -48,9 +48,14 @@ namespace ConsoleClient
     {
         public void Execute()
         {
-            var service = new DataService<Person>();
+
             List<Person> people = new List<Person>();
-            service.Fill(people);
+
+            new DataService<Person>()
+                .Include(Person.Relations.Addresses & Person.Relations.Emails)
+                .Where(Person.Fields.Id == 1 | Person.Fields.FirstName == "jon")
+                .Fill(people); 
+
             foreach (var person in people) {
                 Console.WriteLine(person.FirstName);
             }

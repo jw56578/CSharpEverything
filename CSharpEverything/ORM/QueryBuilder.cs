@@ -14,7 +14,8 @@ namespace ORM
     /// </summary>
     public interface IQueryBuilder<T>
     {
-
+        void AddRelation(Relation relation);
+        void AddField(Field field);
     }
     /// <summary>
     /// this is the thing that is back end specific
