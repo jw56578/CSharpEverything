@@ -79,6 +79,7 @@
     <Compile Include="RepoTest.cs" />
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="TCP.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
@@ -92,6 +93,10 @@
     <ProjectReference Include="..\ORM\ORM.csproj">
       <Project>{13ebbcb0-a6da-453b-9bfc-7e633e455580}</Project>
       <Name>ORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TCP\TCP.csproj">
+      <Project>{873ba375-f5a2-4788-81c1-d56af551004b}</Project>
+      <Name>TCP</Name>
     </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{e5b996da-7525-475b-96c7-41ed32c800ac}</Project>

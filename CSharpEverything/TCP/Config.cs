@@ -9,5 +9,6 @@ namespace TCP
     public static class Config
     {
         public static string IPAddress = "192.168.56.1";
+        public static int Port = 8888;
     }
 }

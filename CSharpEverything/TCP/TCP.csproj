@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncTCPClient.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="HandleClientRequest.cs" />
     <Compile Include="Program.cs" />

@@ -16,20 +16,20 @@ namespace TCP
             connectedClients.Add(client);
 
             //testing, see if you can write to client after a few seconds
-            StartAsyncTimedWork();
+            StartAsyncTimedWork( client);
 
         }
-        private async Task delayedWork()
+        private async Task delayedWork(System.Net.Sockets.TcpClient client)
         {
-            await Task.Delay(3000);
-            HandleClientRequest.WriteToClient(connectedClients[counter], "did this work 3 seconds later?");
-            counter++;
+            await Task.Delay(2000);
+            HandleClientRequest.WriteToClient(client, client.GetHashCode().ToString());
+          
         }
 
         //This could be a button click event handler or the like */
-        private void StartAsyncTimedWork()
+        private void StartAsyncTimedWork(System.Net.Sockets.TcpClient client)
         {
-            Task ignoredAwaitableResult = this.delayedWork();
+            Task ignoredAwaitableResult = this.delayedWork(client);
         }
     }
 }

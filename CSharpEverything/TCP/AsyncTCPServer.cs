@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TCP
 {
-    class AsyncTCPServer
+    public class AsyncTCPServer
     {
         private static TcpListener _listener;
         static TCPClientHandler clientHandler = new TCPClientHandler();
@@ -29,8 +29,7 @@ namespace TCP
         {
             try
             {
-                TcpClient clientSocket = default(TcpClient);
-                clientSocket = _listener.EndAcceptTcpClient(asyn);
+                TcpClient clientSocket = _listener.EndAcceptTcpClient(asyn);
                 clientHandler.Process(clientSocket);
                 HandleClientRequest clientReq = new HandleClientRequest(clientSocket);
                 clientReq.StartClient();
