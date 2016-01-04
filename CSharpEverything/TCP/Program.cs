@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace TCP
 {
+    /// <summary>
+    /// this libary is the basis for creating tcp clients, this can be used for any other tool that need to connect computers for a purpose
+    /// a queue system, distributed systems, message bus
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
             List<string> hashCodes = new List<string>();
 
-            AsyncTCPServer.StartServer();
+            var server = new AsyncTCPServer(new TCPClientHandler());
+            server.StartServer();
            
             Action<string> dataRecived1 = (data) => {
                 Console.WriteLine("client 1" + data);
@@ -21,16 +26,16 @@ namespace TCP
                 Console.WriteLine("client 2" + data);
             };
             Action<string> dataRecivedAsync = (data) => {
-                if (data == "Processed This is a test<EOF>")
-                {
-                    Console.WriteLine(data);
-                    return;
-                }
-                if (hashCodes.Contains(data))
-                {
-                    throw new Exception("TCP client duplication");
-                }
-                hashCodes.Add(data);
+                //if (data == "Processed This is a test<EOF>")
+                //{
+                //    Console.WriteLine(data);
+                //    return;
+                //}
+                //if (hashCodes.Contains(data))
+                //{
+                //    //throw new Exception("TCP client duplication");
+                //}
+                //hashCodes.Add(data);
                 Console.WriteLine(data);
             };
             //var t = Task.Run(() => {
@@ -52,13 +57,23 @@ namespace TCP
             //    client2.SendData("hello2");
             //    client2.ReceiveData();
             //});
+            List<AsynchronousClient> clients = new List<AsynchronousClient>();
+
             for (int i = 0; i < 10; i++)
             {
                 var asyncClient = new AsynchronousClient(dataRecivedAsync);
+                clients.Add(asyncClient);
                 asyncClient.StartClient();
+                asyncClient.Send("Client" + i.ToString());
             }
-            
-            Console.ReadLine();
+            string input;
+            while ((input = Console.ReadLine()) != null) {
+                foreach (var c in clients)
+                {
+                    c.Send(input);
+                }
+            }
+           
         }
     }
 }

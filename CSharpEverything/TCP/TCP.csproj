@@ -45,12 +45,14 @@
   <ItemGroup>
     <Compile Include="AsyncTCPClient.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="HandleClientRequest.cs" />
+    <Compile Include="Server\Functions.cs" />
+    <Compile Include="Server\HandleClientRequest.cs" />
+    <Compile Include="Server\ITCPClientHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AsyncTCPServer.cs" />
+    <Compile Include="Server\AsyncTCPServer.cs" />
     <Compile Include="TCPClient.cs" />
-    <Compile Include="TCPClientHandler.cs" />
+    <Compile Include="Server\TCPClientHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -11,8 +11,10 @@ namespace TCP
     {
         TcpClient _clientSocket;
         NetworkStream _networkStream = null;
-        public HandleClientRequest(TcpClient clientConnected)
+        ITCPClientHandler handler;
+        public HandleClientRequest(TcpClient clientConnected,ITCPClientHandler handler)
         {
+            this.handler = handler;
             this._clientSocket = clientConnected;
         }
         public void StartClient()
@@ -43,10 +45,8 @@ namespace TCP
 
                 byte[] buffer = result.AsyncState as byte[];
                 string data = Encoding.Default.GetString(buffer, 0, read);
+                handler.OnClientRead(_clientSocket, data);
 
-                //do the job with the data here
-                //send the data back to client.
-                WriteToClient(_clientSocket, "Processed " + data);
             }
             catch (Exception ex)
             {
@@ -55,12 +55,6 @@ namespace TCP
 
             this.WaitForRequest();
         }
-        public static void WriteToClient(TcpClient client,string data)
-        {
-            NetworkStream networkStream = client.GetStream();
-            Byte[] sendBytes = Encoding.ASCII.GetBytes(data);
-            networkStream.Write(sendBytes, 0, sendBytes.Length);
-            networkStream.Flush();
-        }
+
     }
 }

@@ -12,7 +12,8 @@ namespace Test
         [TestMethod]
         public void TestTCP()
         {
-            AsyncTCPServer.StartServer();
+            var server = new AsyncTCPServer(null);
+            server.StartServer();
 
             Action<string> dataRecivedAsync = (data) => {
                 Console.WriteLine("client Async" + data);

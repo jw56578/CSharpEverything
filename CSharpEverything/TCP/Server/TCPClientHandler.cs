@@ -1,28 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace TCP
 {
-    public class TCPClientHandler
+    public class TCPClientHandler:ITCPClientHandler
     {
         static List<System.Net.Sockets.TcpClient> connectedClients = new List<System.Net.Sockets.TcpClient>();
-        static int counter = 0;
-        public void Process(System.Net.Sockets.TcpClient client)
+
+        public void OnClientConnected(TcpClient client)
         {
             connectedClients.Add(client);
-
             //testing, see if you can write to client after a few seconds
-            StartAsyncTimedWork( client);
-
+            StartAsyncTimedWork(client);
         }
+
+        public void OnClientRead(TcpClient client,string data)
+        {
+
+            //do the job with the data here
+            //send the data back to client.
+            Functions.WriteToClient(client, "Processed " + data);
+        }
+
         private async Task delayedWork(System.Net.Sockets.TcpClient client)
         {
             await Task.Delay(2000);
-            HandleClientRequest.WriteToClient(client, client.GetHashCode().ToString());
+            Functions.WriteToClient(client, client.GetHashCode().ToString());
           
         }
 

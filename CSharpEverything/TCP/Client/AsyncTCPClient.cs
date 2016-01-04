@@ -38,6 +38,7 @@ namespace TCP
         // The response from the remote device.
         private String response = String.Empty;
         Action<string> onDataRecieved = null;
+        Socket client = null;
         public AsynchronousClient(Action<string> onDataRecieved)
         {
             this.onDataRecieved = onDataRecieved;
@@ -55,7 +56,7 @@ namespace TCP
                 //IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
 
                 // Create a TCP/IP socket.
-                Socket client = new Socket(AddressFamily.InterNetwork,
+                client = new Socket(AddressFamily.InterNetwork,
                     SocketType.Stream, ProtocolType.Tcp);
 
                 // Connect to the remote endpoint.
@@ -63,27 +64,15 @@ namespace TCP
                     new AsyncCallback(ConnectCallback), client);
                 connectDone.WaitOne();
 
-                // Send test data to the remote device.
-                Send(client, "This is a test<EOF>");
-
-
                 //why do we need to wait
                 //sendDone.WaitOne();
 
                 // Receive the response from the remote device.
-                Receive(client);
-
+                Receive();
 
 
                 //why do we need to wait
                 //receiveDone.WaitOne();
-
-                // Write the response to the console.
-                Console.WriteLine("Response received : {0}", response);
-
-                // Release the socket.
-                //client.Shutdown(SocketShutdown.Both);
-                ///client.Close();
 
             }
             catch (Exception e)
@@ -91,7 +80,12 @@ namespace TCP
                 Console.WriteLine(e.ToString());
             }
         }
-
+        public void Close()
+        {
+            // Release the socket.
+            client.Shutdown(SocketShutdown.Both);
+            client.Close();
+        }
         private void ConnectCallback(IAsyncResult ar)
         {
             try
@@ -114,7 +108,7 @@ namespace TCP
             }
         }
 
-        private void Receive(Socket client)
+        private void Receive()
         {
             try
             {
@@ -171,7 +165,7 @@ namespace TCP
             }
         }
 
-        private void Send(Socket client, String data)
+        public void Send( String data)
         {
             // Convert the string data to byte data using ASCII encoding.
             byte[] byteData = Encoding.ASCII.GetBytes(data);
@@ -190,8 +184,7 @@ namespace TCP
 
                 // Complete sending the data to the remote device.
                 int bytesSent = client.EndSend(ar);
-                Console.WriteLine("Sent {0} bytes to server.", bytesSent);
-
+ 
                 // Signal that all bytes have been sent.
                 sendDone.Set();
             }
