@@ -11,16 +11,25 @@ namespace TCP
     public class AsyncTCPServer
     {
         private  TcpListener _listener;
-
+        string host;
+        int port;
         ITCPClientHandler _clientHandler;
         public AsyncTCPServer(ITCPClientHandler handler)
         {
+            host = Config.IPAddress;
+            port = Config.Port;
+            _clientHandler = handler;
+        }
+        public AsyncTCPServer(ITCPClientHandler handler,string host,int port)
+        {
+            this.host = host;
+            this.port = port;
             _clientHandler = handler;
         }
         public  void StartServer()
         {
-            System.Net.IPAddress localIPAddress = System.Net.IPAddress.Parse(Config.IPAddress);
-            IPEndPoint ipLocal = new IPEndPoint(localIPAddress, Config.Port);
+            System.Net.IPAddress localIPAddress = System.Net.IPAddress.Parse(host);
+            IPEndPoint ipLocal = new IPEndPoint(localIPAddress, port);
             _listener = new TcpListener(ipLocal);
             _listener.Start();
             WaitForClientConnect();

@@ -14,7 +14,7 @@ namespace Test
         public void TestMethod1()
         {
             IUnityContainer container = new UnityContainer();
-            container.RegisterType<IImportDmsInformation,BMWInventoryImport>(
+            container.RegisterType<IImportDmsInformation, BMWInventoryImport>(
                 //new InjectionConstructor("connectionstring goes here")
                 );
             container.RegisterType<ICommand, ImportDmsInformation>(
@@ -22,10 +22,23 @@ namespace Test
                 );
             HowToBuildANewSystemFromScratch.Types.Static.CurrentUnityContainer = container;
 
-    
+
 
             Web.WebService1 ws = new Web.WebService1();
             ws.HelloWorld();
+        }
+
+        [TestMethod]
+        public void TestStruct()
+        {
+        }
+    }
+
+    public struct TestStruct
+    {
+        public TestStruct(int x)
+        {
+
         }
     }
 }

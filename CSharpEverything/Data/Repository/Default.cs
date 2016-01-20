@@ -26,13 +26,10 @@ namespace Data.Repository
     /// </summary>
     public class DefaultRepository : IRepository<BaseEntity>
     {
-        QueryBuilder<BaseEntity> qb = null;
-       
-        
+
         string entityName;
         public DefaultRepository(string entityName) {
-            this.entityName = entityName;
-            qb = new QueryBuilder<BaseEntity>(new Entity<BaseEntity>() { Name = entityName });
+          
         }
         public void Fill(List<BaseEntity> collection)
         {

@@ -7,3 +7,11 @@ C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpE
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.dll
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.pdb
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.csprojResolveAssemblyReference.cache
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.dll
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\ORM.dll
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.Parse.dll
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Parse.dll
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.pdb
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\ORM.pdb
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.Parse.pdb
+C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Parse.xml

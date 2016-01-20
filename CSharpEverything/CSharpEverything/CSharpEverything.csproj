@@ -61,6 +61,14 @@
     <Compile Include="GenericDelegates.cs" />
     <Compile Include="SimpleGenericRepository.cs" />
     <Compile Include="OperatorOverload.cs" />
+    <Compile Include="Struct.cs" />
+    <Compile Include="Process.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{cb024481-f1ce-4260-8ed3-3af1c2ff4144}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

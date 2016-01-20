@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
 using System.Collections.Generic;
+using Data;
+using Data.Entities;
 
 namespace CSharpEverything
 {
@@ -24,6 +26,7 @@ namespace CSharpEverything
         [TestMethod]
         public void TestSimpleGenericRepository()
         {
+            RepositoryMapper.GetMap = RepositoryMapper.GetTestMapFunction;
             while (true)
             {
                 Concrete();
@@ -51,35 +54,8 @@ namespace CSharpEverything
             }
         }
     }
-    public static class RepositoryMapper
-    {
-        static Dictionary<string, object> Maps = new Dictionary<string, object>();
-        static RepositoryMapper()
-        {
-            Maps.Add("CSharpEverything.Person", new PersonFiller());
-        }
-        public static object GetMap(string key)
-        {
-            return Maps[key];
-        }
 
-    }
-    public class DataService<T> 
-    {
-        static IRepository<T> f = RepositoryMapper.GetMap(typeof(T).FullName) as IRepository<T>;
 
-        public void Fill(List<T> collection)
-        {
-            f.Fill(collection); 
-        }
-        public IEnumerable<T> Get()
-        {
-            var list = new List<T>();
-            this.Fill(list);
-            return list;
-
-        }
-    }
     public interface IRepository<T>
     {
         void Fill(List<T> collection);
@@ -103,12 +79,5 @@ namespace CSharpEverything
             collection.Add(new Person());
         }
     }
-    public class EntityBase
-    {
 
-    }
-    public class Person : EntityBase
-    {
-
-    }
 }

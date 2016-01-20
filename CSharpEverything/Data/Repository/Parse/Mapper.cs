@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Data.Repository;
+using Data.Repository.Parse;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Repository.Parse
+namespace Data
 {
 
     //how would this work with DI? we might need to use different versions of a repository (parse vs MS SQL server)
@@ -13,31 +15,16 @@ namespace Data.Repository.Parse
     /// if using Parse then generatre a Parse specific mapper that maps Parse repositories to the entity type
     /// 
     /// </summary>
-    public static class RepositoryMapper
+    public static partial class RepositoryMapper
     {
         static readonly string nameSpace = "Data.Entities";
         static Dictionary<string, object> Maps = new Dictionary<string, object>() {
             { nameSpace + ".Person", new PersonRepository() }
         };
-        /// <summary>
-        /// the consumer has to know that it should cast the returned object to something of the repository nature
-        /// this thing cannot return a Repository type because it is generic and this thing can't be generic
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static object GetMap(string key)
-        {
-            object repo = null;
-            if (Maps.TryGetValue(key, out repo))
-            {
-                return repo;
-            }
-            else
-            {
-                return new DefaultRepository(key);
-            }
 
-        }
+        static Dictionary<string, object> TestMaps = new Dictionary<string, object>() {
+            { nameSpace + ".Person", new Data.Repository.Test.PersonRepository() }
+        };
 
     }
 }
