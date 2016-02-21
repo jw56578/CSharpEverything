@@ -17,6 +17,9 @@ namespace DDD.CoreDomain
     /// </summary>
     public sealed class SnackPile : ValueObject<SnackPile>
     {
+        //this is a technique for explicityt defining what the default of something is
+        //giving a meaningful name and assigning the values that represent it
+        //then it can be resused in many places
         public static readonly SnackPile Empty = new SnackPile(Snack.None, 0, 0m);
 
         public Snack Snack { get; }

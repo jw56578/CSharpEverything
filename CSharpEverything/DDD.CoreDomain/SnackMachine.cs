@@ -94,6 +94,11 @@ namespace DDD.CoreDomain
             return GetSlot(position).SnackPile;
         }
 
+        /// <summary>
+        /// its best practice to make any exposed collection readonly
+        /// I enumerable could also be used
+        /// </summary>
+        /// <returns></returns>
         public virtual IReadOnlyList<SnackPile> GetAllSnackPiles()
         {
             return Slots
@@ -126,7 +131,14 @@ namespace DDD.CoreDomain
             MoneyInside -= moneyToReturn;
             MoneyInTransaction = 0;
         }
-
+        /// <summary>
+        /// this is an approach to validation, keeping the validation in the Aggregate root
+        /// at any time the client can call this method before it calls BuySnack in order to know if it can call that method
+        /// so bascially for every method where something can go wrong, you make another method for it called CanWhateverXXX
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public virtual string CanBuySnack(int position)
         {
             SnackPile snackPile = GetSnackPile(position);
