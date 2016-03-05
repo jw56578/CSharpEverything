@@ -11,8 +11,13 @@ namespace FunctionalExamples
 
         static Func<Func<object, object>, object, object> _Map = (c, input) => {
             var list = input as IEnumerable<object>;
-            if(list == null)
+            if (list == null)
+            {
+                var functor = input as Identity;
+                if (functor != null)
+                    return functor.Map(c);
                 return c(input);
+            }
             List<object> mapped = new List<object>();
             foreach (var thing in list)
             {
@@ -22,6 +27,10 @@ namespace FunctionalExamples
         };
         public static Func<Func<object, object>, Func<object, object>> Map = Curry(_Map);
 
+        public static Func<Func<object,object>,Identity,object> MapIdentity = (f,o) =>{
+            return o.Map(f);
+        };
+        //public static Func<Func<object, object>, Func<Identity, object>> MapIdentity = Curry(_MapIdentity);
     }
 
 }

@@ -16,7 +16,7 @@ namespace FunctionalTests
         [TestMethod]
         public void ComposeExistingMethodsUsingObject()
         {
-           
+
             Func<object, object> composed = Compose(SplitOnDash);
             //this is getting all messed because of strong typing
             string[] splitWords = composed("hello-there-how-are-you-i-hope-this-works") as string[];

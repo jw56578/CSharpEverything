@@ -9,13 +9,13 @@ namespace FunctionalExamples
     //also known as Container
     public class Identity
     {
-        object val;
+        protected object val;
         public Identity(object val)
         {
             this.val = val;
         }
 
-        public Identity Map(Func<object, object> f)
+        public virtual Identity Map(Func<object, object> f)
         {
             return new Identity(f(this.val));
         }
