@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PortableFCSLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PortableFCSLib.1.0.0\lib\PortableFCSLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -56,12 +60,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Identity.cs" />
+    <Compile Include="MapReduce.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FunctionalExamples\FunctionalExamples.csproj">
       <Project>{5ade61d4-f740-42dd-8238-847d4806d9d0}</Project>
       <Name>FunctionalExamples</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
