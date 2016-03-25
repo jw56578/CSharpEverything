@@ -11,10 +11,21 @@ namespace Compile
     [TestClass]
     public class CompileTests
     {
+        [TestMethod]
+        public void CanCompile2Namespaces2ClassesInOneFile()
+        {
+            CompileFromString(CSharpCode.TwoNamespacesClasses);
+        }
 
         [TestMethod]
         public void CanCompileAStringOfCode()
         {
+            //all we need is a string containing valid C# code
+            string code = GetCodeString();
+            CompileFromString(code);
+        }
+        void CompileFromString(string code)
+        { 
             //need to look up the documentation on this
             int compilerVersion = 4;
             //why would you not want to optimize?
@@ -25,8 +36,7 @@ namespace Compile
             //this is the build in c# compiler provided by microsoft
             CSharpCodeProvider provider = new CSharpCodeProvider(new Dictionary<string, string> { { "CompilerVersion", "v" + new Version(compilerVersion, 0) } });
            
-            //all we need is a string containing valid C# code
-            string code = GetCodeString();
+          
 
             //different settings for compiling
             CompilerParameters options = new CompilerParameters();

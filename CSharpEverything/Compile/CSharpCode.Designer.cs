@@ -80,5 +80,33 @@ namespace Compile {
                 return ResourceManager.GetString("Loops", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Threading.Tasks;
+        ///
+        ///namespace Compile
+        ///{
+        ///    class Class1
+        ///    {
+        ///
+        ///    }
+        ///}
+        ///namespace Compile1
+        ///{
+        ///    class Class11
+        ///    {
+        ///
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string TwoNamespacesClasses {
+            get {
+                return ResourceManager.GetString("TwoNamespacesClasses", resourceCulture);
+            }
+        }
     }
 }

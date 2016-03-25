@@ -23,6 +23,7 @@ namespace Compile
         [TestMethod]
         public void CanReadAssembly()
         {
+            //read in the dll so the mono cecil thing can do whatever it does to decompile  it and extract the information
             _assemblyDefinition = AssemblyDefinition.ReadAssembly("TypesToBeDecompiled.dll");
 
         }
@@ -31,6 +32,8 @@ namespace Compile
         {
             CanReadAssembly();
             var typeName = "CanYouDecompileMe";
+            //remember there is a thing called a module that is a sub struture under an assembly where types and such exist
+            //so get a specific type that we want
             _type = _assemblyDefinition.MainModule.Types
                .Single(t => t.Name == typeName);
         }
@@ -38,6 +41,7 @@ namespace Compile
         public void CanExtracMethodFromType()
         {
             CanExtractTypeFromAssembly();
+            // get a specific method we want on the type that we got
             var methodName = "CanYouSerializeThisMethod";
             _method = _type.Methods
               .Single(m => m.Name == methodName);
@@ -47,6 +51,8 @@ namespace Compile
         {
             CanExtracMethodFromType();
             List<OpCode> codes = new List<OpCode>();
+            //mono cecil does all the work of getting out the IL codes from the raw binary data 
+            //reading bit by bit 
             foreach (var il in _method.Body.Instructions)
             {
                 object operand = null;
@@ -55,7 +61,7 @@ namespace Compile
                 var operandAsMethodReference = il.Operand as Mono.Cecil.MethodReference;
                 var operandAsParameterDef = il.Operand as Mono.Cecil.ParameterDefinition;
 
-
+                // stand alone commmand that doesn't need a paramters
                 if (il.Operand == null)
                 {
                     operand = null;
@@ -68,15 +74,17 @@ namespace Compile
                         Operand = operandAsInstruction.Operand
                     };
                 }
-
+                //load a string
                 else if (operandAsString != null)
                 {
                     operand = operandAsString;
                 }
+                //load a constant number
                 else if (il.Operand is int)
                 {
                     operand = il.Operand;
                 }
+                //something like a call virtual, for a  method on a type
                 else if (operandAsMethodReference != null)
                 {
                     operand = new Compile.Types.MethodReference() {FullName = operandAsMethodReference.FullName };
@@ -97,7 +105,7 @@ namespace Compile
                 };
                 codes.Add(newCode);
             }
-
+            //dammit i hate serialization. this isn't working but just do whatever is needed to serialize this information 
             SerializeObject(codes.GetType(), codes);
         }
         public static void SerializeObject(Type t,object obj)
