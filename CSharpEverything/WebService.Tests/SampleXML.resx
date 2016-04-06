@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GetVehicleInventoryWithAllCriteria" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!--Sample XML file generated by XMLSpy v2012 rel. 2 sp1 (http://www.altova.com)--&gt;
+&lt;vls:ExtGetVehicleInventory xsi:schemaLocation="urn:com.gm:vls ExtGetVehicleInventory.xsd" xmlns:oagis="http://www.openapplications.org/oagis/9" xmlns:star="http://www.starstandard.org/STAR/5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vls="urn:com.gm:vls"&gt;
+	&lt;vls:ExtApplicationArea&gt;
+		&lt;vls:ExtSender&gt;
+			&lt;star:ComponentID&gt;Locate Module&lt;/star:ComponentID&gt;
+			&lt;star:TaskID&gt;Locate Vehicle&lt;/star:TaskID&gt;
+			&lt;star:CreatorNameCode&gt;2008-11-05T13:15:30.00Z&lt;/star:CreatorNameCode&gt;
+			&lt;star:SenderNameCode&gt;QI&lt;/star:SenderNameCode&gt;
+			&lt;star:DealerNumberID&gt;115097&lt;/star:DealerNumberID&gt;
+			&lt;vls:ExtDealerCountryCode&gt;US&lt;/vls:ExtDealerCountryCode&gt;
+			&lt;vls:ExtLanguageCode&gt;en-US&lt;/vls:ExtLanguageCode&gt;
+		&lt;/vls:ExtSender&gt;
+		&lt;vls:CreationDateAndTime&gt;2011-12-17T09:30:47Z&lt;/vls:CreationDateAndTime&gt;
+		&lt;vls:Destination&gt;
+			&lt;star:DestinationNameCode&gt;VLS&lt;/star:DestinationNameCode&gt;
+			&lt;star:DestinationSoftwareCode&gt;VLS Locate Service&lt;/star:DestinationSoftwareCode&gt;
+		&lt;/vls:Destination&gt;
+	&lt;/vls:ExtApplicationArea&gt;
+	&lt;vls:ExtGetVehicleInventoryDataArea&gt;
+		&lt;vls:ExtGet extMaxItems="10"&gt;
+			&lt;oagis:Expression/&gt;
+			&lt;vls:SearchCriteria&gt;
+				&lt;vls:SearchByCity&gt;
+					&lt;vls:RegionCode&gt;MI&lt;/vls:RegionCode&gt;
+					&lt;vls:Proximity&gt;500&lt;/vls:Proximity&gt;
+					&lt;vls:City&gt;Detroit&lt;/vls:City&gt;
+				&lt;/vls:SearchByCity&gt;
+				&lt;vls:SearchByMultipleVendor isTradingPartnerSearch="false"&gt;
+					&lt;vls:VendorId&gt;118484&lt;/vls:VendorId&gt;
+					&lt;vls:VendorId&gt;118281&lt;/vls:VendorId&gt;
+					&lt;vls:VendorId&gt;114749&lt;/vls:VendorId&gt;
+				&lt;/vls:SearchByMultipleVendor&gt;
+				&lt;vls:SearchByPostalCode&gt;
+					&lt;vls:Proximity&gt;500&lt;/vls:Proximity&gt;
+					&lt;vls:PostalCode&gt;48001&lt;/vls:PostalCode&gt;
+				&lt;/vls:SearchByPostalCode&gt;
+				&lt;vls:SearchByRegion&gt;
+					&lt;vls:RegionCode&gt;MI&lt;/vls:RegionCode&gt;
+					&lt;vls:RegionCode&gt;OH&lt;/vls:RegionCode&gt;
+					&lt;vls:RegionCode&gt;NC&lt;/vls:RegionCode&gt;
+				&lt;/vls:SearchByRegion&gt;
+				&lt;vls:SearchBySingleVendor&gt;
+					&lt;vls:VendorId&gt;115097&lt;/vls:VendorId&gt;
+				&lt;/vls:SearchBySingleVendor&gt;
+				&lt;vls:SearchByMultipleVendor isTradingPartnerSearch="true"/&gt;
+			&lt;/vls:SearchCriteria&gt;
+			&lt;vls:VehicleSpecification&gt;
+				&lt;vls:MakeCode&gt;001&lt;/vls:MakeCode&gt;
+				&lt;vls:MerchandisingModelDesignator&gt;1ZG69&lt;/vls:MerchandisingModelDesignator&gt;
+				&lt;vls:SellingSourceCode&gt;013&lt;/vls:SellingSourceCode&gt;
+				&lt;vls:Year&gt;2012&lt;/vls:Year&gt;
+			&lt;/vls:VehicleSpecification&gt;
+			&lt;vls:FilterCriteria&gt;
+				&lt;vls:EventCodeRange startingEventCode="3000" endingEventCode="5000"/&gt;
+			&lt;/vls:FilterCriteria&gt;
+			&lt;vls:OutputSpecification&gt;
+				&lt;vls:IncludeAvailableFinancing&gt;false&lt;/vls:IncludeAvailableFinancing&gt;
+				&lt;vls:IncludeHistory&gt;false&lt;/vls:IncludeHistory&gt;
+				&lt;vls:IncludeModelInfo&gt;true&lt;/vls:IncludeModelInfo&gt;
+				&lt;vls:IncludeOptions&gt;true&lt;/vls:IncludeOptions&gt;
+				&lt;vls:IncludePricing&gt;true&lt;/vls:IncludePricing&gt;
+				&lt;vls:IncludeReservationInfo&gt;false&lt;/vls:IncludeReservationInfo&gt;
+				&lt;vls:IncludeStatus&gt;true&lt;/vls:IncludeStatus&gt;
+				&lt;vls:IncludeVendorAssigned&gt;true&lt;/vls:IncludeVendorAssigned&gt;
+				&lt;vls:IncludeVendorDetail&gt;true&lt;/vls:IncludeVendorDetail&gt;
+				&lt;vls:OptionDescriptionType&gt;DEFAULT&lt;/vls:OptionDescriptionType&gt;
+				&lt;vls:IncludeProgramCodes&gt;false&lt;/vls:IncludeProgramCodes&gt;
+				&lt;vls:IncludeTotalCashAllowance&gt;false&lt;/vls:IncludeTotalCashAllowance&gt;
+				&lt;vls:IncludeOptionLevelPricing&gt;false&lt;/vls:IncludeOptionLevelPricing&gt;
+				&lt;vls:IncludeSoldFleetVehicles&gt;false&lt;/vls:IncludeSoldFleetVehicles&gt;
+				&lt;vls:IncludeDemoVehicles&gt;false&lt;/vls:IncludeDemoVehicles&gt;
+				&lt;vls:IncludeDMSInventoryInfo&gt;false&lt;/vls:IncludeDMSInventoryInfo&gt;
+        &lt;vls:IncludeServiceCampaigns&gt;true&lt;/vls:IncludeServiceCampaigns&gt;
+			&lt;/vls:OutputSpecification&gt;
+		&lt;/vls:ExtGet&gt;
+	&lt;/vls:ExtGetVehicleInventoryDataArea&gt;
+&lt;/vls:ExtGetVehicleInventory&gt;</value>
+  </data>
+  <data name="SerializedPayloadTemplate" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;Payload xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;content xmlns="http://www.starstandards.org/webservices/2005/10/transport"&gt;
+&lt;vls:ExtGetVehicleInventory xsi:schemaLocation="urn:com.gm:vls ExtGetVehicleInventory.xsd" xmlns:oagis="http://www.openapplications.org/oagis/9" xmlns:star="http://www.starstandard.org/STAR/5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vls="urn:com.gm:vls"&gt;
+	&lt;vls:ExtApplicationArea&gt;
+		&lt;vls:ExtSender&gt;
+			&lt;star:ComponentID&gt;Locate Module&lt;/star:ComponentID&gt;
+			&lt;star:TaskID&gt;Locate Vehicle&lt;/star:TaskID&gt;
+			&lt;star:CreatorNameCode&gt;2008-11-05T13:15:30.00Z&lt;/star:CreatorNameCode&gt;
+			&lt;star:SenderNameCode&gt;QI&lt;/star:SenderNameCode&gt;
+			&lt;star:DealerNumberID&gt;115097&lt;/star:DealerNumberID&gt;
+			&lt;vls:ExtDealerCountryCode&gt;US&lt;/vls:ExtDealerCountryCode&gt;
+			&lt;vls:ExtLanguageCode&gt;en-US&lt;/vls:ExtLanguageCode&gt;
+		&lt;/vls:ExtSender&gt;
+		&lt;vls:CreationDateAndTime&gt;2011-12-17T09:30:47Z&lt;/vls:CreationDateAndTime&gt;
+		&lt;vls:Destination&gt;
+			&lt;star:DestinationNameCode&gt;VLS&lt;/star:DestinationNameCode&gt;
+			&lt;star:DestinationSoftwareCode&gt;VLS Locate Service&lt;/star:DestinationSoftwareCode&gt;
+		&lt;/vls:Destination&gt;
+	&lt;/vls:ExtApplicationArea&gt;
+	&lt;vls:ExtGetVehicleInventoryDataArea&gt;
+		&lt;vls:ExtGet extMaxItems="10"&gt;
+			&lt;oagis:Expression/&gt;
+			&lt;vls:SearchCriteria&gt;
+				&lt;vls:SearchByMultipleVendor isTradingPartnerSearch="false"&gt;
+					&lt;vls:VendorId&gt;118484&lt;/vls:VendorId&gt;
+					&lt;vls:VendorId&gt;118281&lt;/vls:VendorId&gt;
+					&lt;vls:VendorId&gt;114749&lt;/vls:VendorId&gt;
+				&lt;/vls:SearchByMultipleVendor&gt;
+			&lt;/vls:SearchCriteria&gt;
+			&lt;vls:VehicleSpecification&gt;
+				&lt;vls:MakeCode&gt;001&lt;/vls:MakeCode&gt;
+				&lt;vls:MerchandisingModelDesignator&gt;1ZG69&lt;/vls:MerchandisingModelDesignator&gt;
+				&lt;vls:SellingSourceCode&gt;013&lt;/vls:SellingSourceCode&gt;
+				&lt;vls:Year&gt;2012&lt;/vls:Year&gt;
+			&lt;/vls:VehicleSpecification&gt;
+			&lt;vls:OutputSpecification&gt;
+				&lt;vls:IncludeAvailableFinancing&gt;false&lt;/vls:IncludeAvailableFinancing&gt;
+				&lt;vls:IncludeHistory&gt;false&lt;/vls:IncludeHistory&gt;
+				&lt;vls:IncludeModelInfo&gt;true&lt;/vls:IncludeModelInfo&gt;
+				&lt;vls:IncludeOptions&gt;true&lt;/vls:IncludeOptions&gt;
+				&lt;vls:IncludePricing&gt;true&lt;/vls:IncludePricing&gt;
+				&lt;vls:IncludeReservationInfo&gt;false&lt;/vls:IncludeReservationInfo&gt;
+				&lt;vls:IncludeStatus&gt;true&lt;/vls:IncludeStatus&gt;
+				&lt;vls:IncludeVendorAssigned&gt;true&lt;/vls:IncludeVendorAssigned&gt;
+				&lt;vls:IncludeVendorDetail&gt;true&lt;/vls:IncludeVendorDetail&gt;
+				&lt;vls:OptionDescriptionType&gt;DEFAULT&lt;/vls:OptionDescriptionType&gt;
+				&lt;vls:IncludeProgramCodes&gt;false&lt;/vls:IncludeProgramCodes&gt;
+				&lt;vls:IncludeTotalCashAllowance&gt;false&lt;/vls:IncludeTotalCashAllowance&gt;
+				&lt;vls:IncludeOptionLevelPricing&gt;false&lt;/vls:IncludeOptionLevelPricing&gt;
+				&lt;vls:IncludeSoldFleetVehicles&gt;false&lt;/vls:IncludeSoldFleetVehicles&gt;
+				&lt;vls:IncludeDemoVehicles&gt;false&lt;/vls:IncludeDemoVehicles&gt;
+				&lt;vls:IncludeDMSInventoryInfo&gt;false&lt;/vls:IncludeDMSInventoryInfo&gt;
+        &lt;vls:IncludeServiceCampaigns&gt;true&lt;/vls:IncludeServiceCampaigns&gt;
+			&lt;/vls:OutputSpecification&gt;
+		&lt;/vls:ExtGet&gt;
+	&lt;/vls:ExtGetVehicleInventoryDataArea&gt;
+&lt;/vls:ExtGetVehicleInventory&gt;
+  &lt;/content&gt;
+&lt;/Payload&gt;</value>
+  </data>
+</root>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.starstandards.org/webservices/2005/10/transport" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.reactivity.com/xsdbundle/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.starstandards.org/webservices/2005/10/transport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plnk11:partnerLinkType name="VehicleLocatorService" xmlns:plnk11="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plnk11:role name="vehicleLocatorService_PortType">
+      <plnk11:portType name="tns:vehicleLocatorService_Service" />
+    </plnk11:role>
+  </plnk11:partnerLinkType>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.starstandards.org/webservices/2005/10/transport">
+      <xsd:complexType name="Payload">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="content" type="tns:Content" />
+        </xsd:sequence>
+        <xsd:anyAttribute />
+      </xsd:complexType>
+      <xsd:complexType name="Content">
+        <xsd:sequence>
+          <xsd:any minOccurs="1" maxOccurs="1" namespace="##any" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required" />
+        <xsd:anyAttribute />
+      </xsd:complexType>
+      <xsd:element name="payloadManifest" type="tns:PayloadManifest" />
+      <xsd:complexType name="PayloadManifest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="manifest" type="tns:Manifest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Manifest">
+        <xsd:attribute name="contentID" type="xsd:IDREF" use="required" />
+        <xsd:attribute name="namespaceURI" type="xsd:anyURI" use="required" />
+        <xsd:attribute name="element" type="xsd:string" use="required" />
+        <xsd:attribute name="relatedID" type="xsd:string" use="optional" />
+        <xsd:attribute name="version" type="xsd:string" use="optional" />
+        <xsd:attribute name="routing" type="xsd:string" use="optional" />
+      </xsd:complexType>
+      <xsd:element name="ProcessMessage">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" form="qualified" name="payload" type="tns:Payload" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProcessMessageResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" form="qualified" name="payload" type="tns:Payload" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="processIn">
+    <wsdl:part name="parameters" element="tns:ProcessMessage" />
+  </wsdl:message>
+  <wsdl:message name="processOut">
+    <wsdl:part name="parameters" element="tns:ProcessMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="vehicleLocatorService_Service">
+    <wsdl:operation name="process">
+      <wsdl:input message="tns:processIn" />
+      <wsdl:output message="tns:processOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="vehicleLocatorService_Service" type="tns:vehicleLocatorService_Service">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="process">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="vehicleLocatorService_Service">
+    <wsdl:port name="vehicleLocatorService_Service" binding="tns:vehicleLocatorService_Service">
+      <soap:address location="https://gmb2c.pp.gm.com/VehicleLocatorService/services/ProcessMessage" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

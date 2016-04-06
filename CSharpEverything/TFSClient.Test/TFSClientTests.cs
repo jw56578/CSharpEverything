@@ -70,9 +70,9 @@ namespace TFSClient.Test
             VersionSpec fromDateVersion = new DateVersionSpec(dtpFrom);
             VersionSpec toDateVersion = new DateVersionSpec(dtpTo);
 
-
+            //this works but by date does not work
             ChangesetVersionSpec versionFrom = new
-                           ChangesetVersionSpec(223416);
+                           ChangesetVersionSpec(221192);
             ChangesetVersionSpec versionTo = new
                           ChangesetVersionSpec(225981);
             
@@ -82,7 +82,7 @@ namespace TFSClient.Test
                 tfs
                 .GetService<VersionControlServer>()
                 .QueryHistory(
-                    path: "$/eLeadCRM Project/Evolution2/Evolution2Web",
+                    path: "$/eLeadCRM Project/Evolution2",
                     version: VersionSpec.Latest,
                     deletionId: 0,
                     recursion: RecursionType.Full,
@@ -101,7 +101,7 @@ namespace TFSClient.Test
                     try
                     {
                         //where are there items that aren't files that can't be downloaded
-                        if (w.Item.ServerItem.Contains(".js") || w.Item.ServerItem.Contains(".css") || w.Item.ServerItem.Contains(".asp"))
+                        if (!w.Item.ServerItem.Contains(".cs"))
                             continue;
                         var stream = w.Item.DownloadFile();
                         StreamReader reader = new StreamReader(stream);
