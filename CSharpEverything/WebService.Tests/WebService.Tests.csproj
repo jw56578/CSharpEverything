@@ -57,6 +57,7 @@
     <Compile Include="ExtendSecurity.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="ManuallyGeneratedProxyClass.cs" />
+    <Compile Include="ManuallyGeneratedProxyClass2.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

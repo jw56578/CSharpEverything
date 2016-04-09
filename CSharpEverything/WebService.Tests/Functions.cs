@@ -44,6 +44,16 @@ namespace WebService.Tests
             }
             return sb.ToString();
         }
+        public static T Deserialize<T>(string xml) where T:class
+        {
+            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
+            object result;
+            using (TextReader reader = new StringReader(xml))
+            {
+                result = serializer.Deserialize(reader);
+            }
+            return result as T;
+        }
         public static void SetCredentials(com.gm.pp.gmb2c.vehicleLocatorService_Service client)
         {
 

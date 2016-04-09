@@ -140,7 +140,10 @@ namespace CSharpEverything
 
                 var visitor = new MySourceExpressionVisitor();
                 visitor.Visit(_expression);
-
+                //the expression visitor would now be responsible for returning whatever data 
+                //so it might expose an Ienumerator itself? and you just loop through it yielding the results
+                //OR the expression visitor would just make a SQL statement for example and this Query class will use it to call the database and 
+                //  return the data itself
                 yield return 1;
                 yield return 5;
                 yield return 4;

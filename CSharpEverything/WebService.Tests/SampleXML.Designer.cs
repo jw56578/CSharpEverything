@@ -76,6 +76,21 @@ namespace WebService.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;vls:ExtShowVehicleInventory xsi:schemaLocation=&quot;urn:com.gm:vls ExtShowVehicleInventory.xsd&quot; xmlns:star=&quot;http://www.starstandard.org/STAR/5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:udt=&quot;http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1&quot; xmlns:vls=&quot;urn:com.gm:vls&quot;&gt;
+        ///	&lt;vls:ExtApplicationArea&gt;
+        ///		&lt;star:Sender&gt;
+        ///			&lt;star:ComponentID&gt;VLS&lt;/star:ComponentID&gt;
+        ///			&lt;star:TaskID&gt;Vehicle Locator Service&lt;/star:TaskID&gt;
+        ///			&lt;star:CreatorNameCode&gt;VL [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string InventorySearchResponse {
+            get {
+                return ResourceManager.GetString("InventorySearchResponse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
         ///&lt;Payload xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
         ///  &lt;content xmlns=&quot;http://www.starstandards.org/webservices/2005/10/transport&quot;&gt;

@@ -27,8 +27,37 @@ namespace WebService.Tests
             locatorService.process(ref payload);
         }
         [TestMethod]
+        public void CanCallWebServiceWithSerializedPayload()
+        {
+            com.gm.pp.gmb2c.vehicleLocatorService_Service locatorService = new com.gm.pp.gmb2c.vehicleLocatorService_Service();
+            Functions.SetCredentials(locatorService);
+            var payload = GetVehicleInventorySearchPayload();
+            locatorService.process(ref payload);
+        }
+        [TestMethod]
+        public void CanDeserializeWebServiceResponse()
+        {
+            com.gm.pp.gmb2c.vehicleLocatorService_Service locatorService = new com.gm.pp.gmb2c.vehicleLocatorService_Service();
+            Functions.SetCredentials(locatorService);
+            var payload = GetVehicleInventorySearchPayload();
+            locatorService.process(ref payload);
+            var response = payload.content[0].Any.InnerXml;
+
+        }
+        [TestMethod]
+        public void CanDeserializeResponse()
+        {
+            var searchresult = Deserialize<ExtShowVehicleInventory>(SampleXML.InventorySearchResponse);
+        }
+        [TestMethod]
         public void CanSerializeAManuallyGeneratedProxyClass()
         {
+            var result = Serialize<ExtGetVehicleInventory>(GetSearch());
+
+            Assert.IsFalse(string.IsNullOrEmpty(result));
+        }
+        ExtGetVehicleInventory GetSearch()
+        { 
             ExtGetVehicleInventory inv = new ExtGetVehicleInventory();
             inv.ExtGetVehicleInventoryDataArea = new ExtGetVehicleInventoryDataArea();
             inv.ExtGetVehicleInventoryDataArea.ExtGet = new ExtGet();
@@ -38,22 +67,35 @@ namespace WebService.Tests
             inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchByCity.Proximity = "100";
             inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchByCity.Proximity = "Detroit";
 
-            var result = Serialize<ExtGetVehicleInventory>(inv);
-
-            Assert.IsFalse(string.IsNullOrEmpty(result));
+            return inv;
         }
-
-        Payload GetVehicleInventorySearch()
+        [TestMethod]
+        public void CanLoadXmlIntoXmlElement()
         {
+            var s = GetSearch();
+            var result = Serialize<ExtGetVehicleInventory>(s);
             var p = new Payload();
             p.content = new Content[1];
-            XmlDocument doc = new XmlDocument();
-            //doc.LoadXml(xml);
-            //return doc.DocumentElement;
-            return p;
+            p.content[0] = new Content();
+            p.content[0].Any = GetVehicleInventorySearch(result);
 
         }
 
-
+        XmlElement GetVehicleInventorySearch(string xml)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            return doc.DocumentElement;
+        }
+        Payload GetVehicleInventorySearchPayload()
+        {
+            var s = GetSearch();
+            var result = Serialize<ExtGetVehicleInventory>(s);
+            var p = new Payload();
+            p.content = new Content[1];
+            p.content[0] = new Content();
+            p.content[0].Any = GetVehicleInventorySearch(result);
+            return p;
+        }
     }
 }

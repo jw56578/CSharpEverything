@@ -7,9 +7,10 @@ using System.Xml.Serialization;
 namespace WebService.Tests
 {
     /* 
-  Licensed under the Apache License, Version 2.0
+this is the website that made the code
+the xsd.exe is not reliable
   http://xmltocsharp.azurewebsites.net/
-  http://www.apache.org/licenses/LICENSE-2.0
+
   */
 
 
