@@ -12,9 +12,9 @@ namespace WebService.Tests
 {
     public static class Functions
     {
-        public static void SetProxyForFiddler()
+        public static void SetProxyForFiddler(int port = 8888)
         {
-            System.Net.WebRequest.DefaultWebProxy = new WebProxy("127.0.0.1", 8888);
+            System.Net.WebRequest.DefaultWebProxy = new WebProxy("127.0.0.1",port);
         }
         public static void SetupFiddlerForSSL()
         {
@@ -60,7 +60,7 @@ namespace WebService.Tests
             // [System.Web.Services.Protocols.SoapHeaderAttribute("SecurityValue")]
             //this is the trick, this attribute has to be put on the method that is called, in this case "process"
 
-
+            client.Url = "https://gmb2c.gm.com/VehicleLocatorService/services/ProcessMessage";
 
             //doesn't work
             //client.Credentials = new NetworkCredential("xxxxx", "xxxxxx");
@@ -76,11 +76,35 @@ namespace WebService.Tests
             //authHeader.Username = "username";
             //authHeader.Password = "password";
             //client.AuthHeader = authHeader;
+             
 
             client.SecurityValue = new Security();
+            client.SecurityValue.MustUnderstand = true;
             client.SecurityValue.UsernameToken = new SecurityUsernameToken();
-            client.SecurityValue.UsernameToken.Password = "La5WAGDCtpDkj4eh";
-            client.SecurityValue.UsernameToken.Username = "bmw";
+            client.SecurityValue.UsernameToken.Password = "Password123";
+            client.SecurityValue.UsernameToken.Username = "A38772_EI";
+            client.SecurityValue.UsernameToken.TradingPartnerID = "A38772_EI";
+            client.SecurityValue.UsernameToken.BAC = "EL_115275";
+
+            client.GMAuthorization = new GMAuthorization();
+            client.GMAuthorization.BAC = "EL_115275";
+            client.GMAuthorization.TradingPartnerID = "A38772_EI";
+
+            client.SecurityValue.Timestamp = new Timestamp();
+            client.SecurityValue.Timestamp.Created = "";
+            client.SecurityValue.Timestamp.Expires = "";
+
+            client.Action = new Action();
+
+            client.payloadManifest = new PayloadManifest();
+            client.payloadManifest.manifest = new Manifest[1];
+            client.payloadManifest.manifest[0] = new Manifest();
+            client.payloadManifest.manifest[0].element = "ExtGetVehicleInventory";
+            client.payloadManifest.manifest[0].contentID = "Content0";
+            client.payloadManifest.manifest[0].version="1.0";
+
+
+
         }
     }
 }
