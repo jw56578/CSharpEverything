@@ -15,3 +15,16 @@ C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.pd
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\ORM.pdb
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.Parse.pdb
 C:\projects\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Parse.xml
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.dll
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\CSharpEverything.pdb
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.dll
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\ORM.dll
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.Parse.dll
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Parse.dll
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.pdb
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\ORM.pdb
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Data.Parse.pdb
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\bin\Debug\Parse.xml
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.csprojResolveAssemblyReference.cache
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.dll
+C:\Users\JWoo\Documents\GitHub\CSharpEverything\CSharpEverything\CSharpEverything\obj\Debug\CSharpEverything.pdb

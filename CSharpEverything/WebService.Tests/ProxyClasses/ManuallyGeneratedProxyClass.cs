@@ -138,6 +138,15 @@ the xsd.exe is not reliable
     {
         [XmlElement(ElementName = "EventCodeRange", Namespace = "urn:com.gm:vls")]
         public EventCodeRange EventCodeRange { get; set; }
+
+
+        [XmlElement(ElementName = "EarliestEventCode", Namespace = "urn:com.gm:vls")]
+        public string EarliestEventCode { get; set; }
+
+        
+
+
+
     }
 
     [XmlRoot(ElementName = "OutputSpecification", Namespace = "urn:com.gm:vls")]

@@ -15,9 +15,13 @@ namespace WebService.Tests
     {
         public WebServiceTests()
         {
-            SetProxyForFiddler(15748);
+            SetProxyForFiddler(3597);
             SetupFiddlerForSSL();
         }
+
+        
+
+
         [TestMethod]
         public void CanCallWebServiceThatDoesNotHaveProxySecurityHeader()
         {
