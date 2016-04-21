@@ -14,27 +14,16 @@ using WebService.Tests.com.gm.pp.gmb2c;
 
 namespace WebService.Tests
 {
-    public static class Functions
+    public  static partial class Functions
     {
         public static string HttpPOST(string url, string data)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.ContentType = "text/xml; charset=utf-8"; // or whatever - application/json, etc, etc
             request.Method = "POST";
-            StreamWriter requestWriter = new StreamWriter(request.GetRequestStream());
-
-            try
+            using (StreamWriter requestWriter = new StreamWriter(request.GetRequestStream()))
             {
                 requestWriter.Write(data);
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                requestWriter.Close();
-                requestWriter = null;
             }
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -74,11 +63,13 @@ namespace WebService.Tests
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
             ns.Add("vls", "urn:com.gm:vls");
             ns.Add("star", "http://www.starstandard.org/STAR/5");
-            ns.Add("oagis", " http://www.openapplications.org/oagis/9");
+            ns.Add("oagis", "http://www.openapplications.org/oagis/9");
+            ns.Add("soap", "http://schemas.xmlsoap.org/soap/envelope/");
+            ns.Add("wsse", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
+            ns.Add("starws", "http://www.starstandards.org/webservices/2005/10/transport");
+            ns.Add("wsa", "http://www.w3.org/2005/08/addressing");
+            ns.Add("wsu", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd");
 
-
-
-       
 
             using (TextWriter writer = new StringWriter(sb))
             {
@@ -124,88 +115,34 @@ namespace WebService.Tests
             //client.AuthHeader = authHeader;
              
 
-            client.SecurityValue = new Security();
-            client.SecurityValue.MustUnderstand = true;
-            client.SecurityValue.UsernameToken = new SecurityUsernameToken();
-            client.SecurityValue.UsernameToken.Password = "Password123";
-            client.SecurityValue.UsernameToken.Username = "mgifedl001";
+            //client.SecurityValue = new Security();
+            //client.SecurityValue.MustUnderstand = true;
+            //client.SecurityValue.UsernameToken = new SecurityUsernameToken();
+            //client.SecurityValue.UsernameToken.Password = "Password123";
+            //client.SecurityValue.UsernameToken.Username = "mgifedl001";
 
 
-            client.GMAuthorization = new GMAuthorization();
-            client.GMAuthorization.BAC = "115275";
-            client.GMAuthorization.TradingPartnerID = "EL";
+            //client.GMAuthorization = new GMAuthorization();
+            //client.GMAuthorization.BAC = "115275";
+            //client.GMAuthorization.TradingPartnerID = "EL";
 
-            client.SecurityValue.Timestamp = new Timestamp();
-            client.SecurityValue.Timestamp.Created = DateTime.UtcNow.ToString("o");
-            client.SecurityValue.Timestamp.Expires = DateTime.UtcNow.AddMinutes(1).ToString("o");
+            //client.SecurityValue.Timestamp = new Timestamp();
+            //client.SecurityValue.Timestamp.Created = DateTime.UtcNow.ToString("o");
+            //client.SecurityValue.Timestamp.Expires = DateTime.UtcNow.AddMinutes(1).ToString("o");
 
-            client.Action = new Action();
+            //client.Action = new Action();
 
-            var pm = client.payloadManifest = new PayloadManifest();
-            pm.manifest = new Manifest[1];
-            pm.manifest[0] = new Manifest();
-            pm.manifest[0].element = "ExtGetVehicleInventory";
-            pm.manifest[0].contentID = "Content0";
-            pm.manifest[0].version="1.0";
-            pm.manifest[0].namespaceURI = "http://www.gm.com/vls";
-
-
-
-        }
-        public static ExtGetVehicleInventory CreateMinimalMessage()
-        {
-            ExtGetVehicleInventory inv = new ExtGetVehicleInventory();
-            inv.ExtApplicationArea = new ExtApplicationArea();
-            inv.ExtApplicationArea.CreationDateAndTime = DateTime.UtcNow.ToString("o");
-
-            var d = inv.ExtApplicationArea.Destination = new Destination();
-            d.DestinationNameCode = "VLS";
-            d.DestinationSoftwareCode = "VLS Locate Service";
-            var e = inv.ExtApplicationArea.ExtSender = new ExtSender();
-            e.CreatorNameCode = "ADP";
-            e.SenderNameCode = "AD";
-            e.DealerNumberID = "119086";
-            e.ExtDealerCountryCode = "US";
-            e.TaskID = "Locate Vehicle";
-            e.ComponentID = "Locate Module";
-            e.ExtLanguageCode = "en-US";
-            inv.ExtGetVehicleInventoryDataArea = new ExtGetVehicleInventoryDataArea();
-            var g = inv.ExtGetVehicleInventoryDataArea.ExtGet = new ExtGet();
-            g.SearchCriteria = new SearchCriteria();
-
-            var vs = g.VehicleSpecification = new VehicleSpecification();
-            vs.MakeCode = "001";
-            vs.MerchandisingModelDesignator = "12P43";
-            vs.SellingSourceCode = "13";
-            vs.Year = "2015";
-
-            var f = g.FilterCriteria = new FilterCriteria();
-            f.EarliestEventCode = "3000";
-
-            var sbc = g.SearchCriteria.SearchByCity = new SearchByCity();
-            sbc.RegionCode = "MI";
-            sbc.Proximity = "100";
-            sbc.City = "Detroit";
-
-            //var pc = g.SearchCriteria.SearchByPostalCode = new SearchByPostalCode();
-            //pc.Proximity = "200";
-            //pc.PostalCode = "30062";
-   
-            g.ExtMaxItems = "20";
-            g.Expression = " ";
-
-            var o = g.OutputSpecification = new OutputSpecification();
-            o.IncludeModelInfo = "true";
-            o.IncludePricing = "true";
-            o.IncludeOptions = "true";
-            o.IncludeStatus = "true";
-            o.IncludeVendorAssigned = "true";
-            o.IncludeVendorDetail = "true";
-            o.OptionDescriptionType = "DEFAULT";
-            return inv;
+            //var pm = client.payloadManifest = new PayloadManifest();
+            //pm.manifest = new Manifest[1];
+            //pm.manifest[0] = new Manifest();
+            //pm.manifest[0].element = "ExtGetVehicleInventory";
+            //pm.manifest[0].contentID = "Content0";
+            //pm.manifest[0].version="1.0";
+            //pm.manifest[0].namespaceURI = "http://www.gm.com/vls";
 
 
 
         }
+     
     }
 }

@@ -96,6 +96,27 @@ the xsd.exe is not reliable
         public string VendorId { get; set; }
     }
 
+
+    
+   [XmlRoot(ElementName = "VehicleSelectorCriteria", Namespace = "urn:com.gm:vls")]
+    public class VehicleSelectorCriteria
+    {
+        [XmlAttribute(AttributeName = "methodName")]
+        public string MethodName { get; set; }
+        [XmlElement(ElementName = "Year", Namespace  = "urn:com.gm:vls")]
+        public Year Year { get; set; }
+    }
+    [XmlRoot(ElementName = "Year", Namespace = "urn:com.gm:vls")]
+    public class Year
+    {
+        [XmlAttribute(AttributeName = "toYear")]
+        public string ToYear { get; set; }
+        [XmlAttribute(AttributeName = "fromYear")]
+        public string FromYear { get; set; }
+    }
+
+
+
     [XmlRoot(ElementName = "SearchCriteria", Namespace = "urn:com.gm:vls")]
     public class SearchCriteria
     {
@@ -203,6 +224,8 @@ the xsd.exe is not reliable
         public OutputSpecification OutputSpecification { get; set; }
         [XmlAttribute(AttributeName = "extMaxItems")]
         public string ExtMaxItems { get; set; }
+        [XmlElement(ElementName = "VehicleSelectorCriteria", Namespace = "urn:com.gm:vls")]
+        public VehicleSelectorCriteria VehicleSelectorCriteria { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtGetVehicleInventoryDataArea", Namespace = "urn:com.gm:vls")]
@@ -211,7 +234,12 @@ the xsd.exe is not reliable
         [XmlElement(ElementName = "ExtGet", Namespace = "urn:com.gm:vls")]
         public ExtGet ExtGet { get; set; }
     }
-
+    [XmlRoot(ElementName = "ExtGetVehicleSpecificationsDataArea", Namespace = "urn:com.gm:vls")]
+    public class ExtGetVehicleSpecificationsDataArea
+    {
+        [XmlElement(ElementName = "ExtGet", Namespace = "urn:com.gm:vls")]
+        public ExtGet ExtGet { get; set; }
+    }
     [XmlRoot(ElementName = "ExtGetVehicleInventory", Namespace = "urn:com.gm:vls")]
     public class ExtGetVehicleInventory
     {
@@ -230,6 +258,23 @@ the xsd.exe is not reliable
         [XmlAttribute(AttributeName = "vls", Namespace = "http://www.w3.org/2000/xmlns/")]
         public string Vls { get; set; }
     }
-
+    [XmlRoot(ElementName = "ExtGetVehicleSpecifications", Namespace = "urn:com.gm:vls")]
+    public class ExtGetVehicleSpecifications
+    {
+        [XmlElement(ElementName = "ExtApplicationArea", Namespace = "urn:com.gm:vls")]
+        public ExtApplicationArea ExtApplicationArea { get; set; }
+        [XmlElement(ElementName = "ExtGetVehicleSpecificationsDataArea", Namespace = "urn:com.gm:vls")]
+        public ExtGetVehicleSpecificationsDataArea ExtGetVehicleSpecificationsDataArea { get; set; }
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation { get; set; }
+        [XmlAttribute(AttributeName = "oagis", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Oagis { get; set; }
+        [XmlAttribute(AttributeName = "star", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Star { get; set; }
+        [XmlAttribute(AttributeName = "xsi", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Xsi { get; set; }
+        [XmlAttribute(AttributeName = "vls", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Vls { get; set; }
+    }
 }
 

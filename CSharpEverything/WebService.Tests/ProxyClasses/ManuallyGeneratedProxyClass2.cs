@@ -5,74 +5,133 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace WebService.Tests
+
+namespace WebService.Tests.ProxyClasses
 {
     [XmlRoot(ElementName = "Sender", Namespace = "http://www.starstandard.org/STAR/5")]
     public class Sender
     {
-        [XmlElement(ElementName = "ComponentID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string ComponentID { get; set; }
-        [XmlElement(ElementName = "TaskID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string TaskID { get; set; }
-        [XmlElement(ElementName = "CreatorNameCode", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string CreatorNameCode { get; set; }
-        [XmlElement(ElementName = "SenderNameCode", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string SenderNameCode { get; set; }
+        [XmlElement(ElementName = "DealerNumberID", Namespace = "http://www.starstandard.org/STAR/5")]
+        public string DealerNumberID { get; set; }
+        [XmlElement(ElementName = "DealerCountryCode", Namespace = "http://www.starstandard.org/STAR/5")]
+        public string DealerCountryCode { get; set; }
+        [XmlElement(ElementName = "LanguageCode", Namespace = "http://www.starstandard.org/STAR/5")]
+        public string LanguageCode { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
     }
 
-    [XmlRoot(ElementName = "ExtShow", Namespace = "urn:com.gm:vls")]
-    public class ExtShow
+    [XmlRoot(ElementName = "CreationDateAndTime", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class CreationDateAndTime
     {
-        [XmlAttribute(AttributeName = "recordSetCount")]
-        public string RecordSetCount { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
     }
 
-    [XmlRoot(ElementName = "DocumentIdentification", Namespace = "http://www.starstandard.org/STAR/5")]
-    public class DocumentIdentification
+    [XmlRoot(ElementName = "Model", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class Model
     {
-        [XmlElement(ElementName = "DocumentID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string DocumentID { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
     }
 
-    [XmlRoot(ElementName = "DocumentIdentificationGroup", Namespace = "http://www.starstandard.org/STAR/5")]
-    public class DocumentIdentificationGroup
+    [XmlRoot(ElementName = "ModelYear", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class ModelYear
     {
-        [XmlElement(ElementName = "DocumentIdentification", Namespace = "http://www.starstandard.org/STAR/5")]
-        public DocumentIdentification DocumentIdentification { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
     }
 
-    [XmlRoot(ElementName = "ExtVehicleInventoryHeader", Namespace = "urn:com.gm:vls")]
-    public class ExtVehicleInventoryHeader
+    [XmlRoot(ElementName = "ModelDescription", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class ModelDescription
     {
-        [XmlElement(ElementName = "DocumentIdentificationGroup", Namespace = "http://www.starstandard.org/STAR/5")]
-        public DocumentIdentificationGroup DocumentIdentificationGroup { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "MakeString", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class MakeString
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "BodyStyle", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class BodyStyle
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "VehicleID", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class VehicleID
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "SeriesCode", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class SeriesCode
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "SeriesName", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class SeriesName
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtVehicle", Namespace = "urn:com.gm:vls")]
     public class ExtVehicle
     {
         [XmlElement(ElementName = "Model", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string Model { get; set; }
+        public Model Model { get; set; }
         [XmlElement(ElementName = "ModelYear", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string ModelYear { get; set; }
+        public ModelYear ModelYear { get; set; }
         [XmlElement(ElementName = "ModelDescription", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string ModelDescription { get; set; }
+        public ModelDescription ModelDescription { get; set; }
         [XmlElement(ElementName = "MakeString", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string MakeString { get; set; }
-        [XmlElement(ElementName = "SaleClassCode", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string SaleClassCode { get; set; }
-        [XmlElement(ElementName = "VehicleNote", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string VehicleNote { get; set; }
+        public MakeString MakeString { get; set; }
         [XmlElement(ElementName = "BodyStyle", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string BodyStyle { get; set; }
+        public BodyStyle BodyStyle { get; set; }
         [XmlElement(ElementName = "VehicleID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string VehicleID { get; set; }
+        public VehicleID VehicleID { get; set; }
         [XmlElement(ElementName = "SeriesCode", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string SeriesCode { get; set; }
+        public SeriesCode SeriesCode { get; set; }
         [XmlElement(ElementName = "SeriesName", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string SeriesName { get; set; }
+        public SeriesName SeriesName { get; set; }
         [XmlElement(ElementName = "MakeCode", Namespace = "urn:com.gm:vls")]
         public string MakeCode { get; set; }
+    }
+
+    [XmlRoot(ElementName = "PartyID", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class PartyID
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
     }
 
     [XmlRoot(ElementName = "TelephoneCommunication", Namespace = "http://www.starstandard.org/STAR/5")]
@@ -91,12 +150,10 @@ namespace WebService.Tests
         public string AddressType { get; set; }
         [XmlElement(ElementName = "LineOne", Namespace = "http://www.starstandard.org/STAR/5")]
         public string LineOne { get; set; }
+        [XmlElement(ElementName = "LineTwo", Namespace = "http://www.starstandard.org/STAR/5")]
+        public string LineTwo { get; set; }
         [XmlElement(ElementName = "LineThree", Namespace = "http://www.starstandard.org/STAR/5")]
         public string LineThree { get; set; }
-        [XmlElement(ElementName = "LineFour", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string LineFour { get; set; }
-        [XmlElement(ElementName = "CityName", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string CityName { get; set; }
         [XmlElement(ElementName = "CountryID", Namespace = "http://www.starstandard.org/STAR/5")]
         public string CountryID { get; set; }
         [XmlElement(ElementName = "Postcode", Namespace = "http://www.starstandard.org/STAR/5")]
@@ -134,43 +191,57 @@ namespace WebService.Tests
         public string BusinessTypeCode { get; set; }
         [XmlElement(ElementName = "PrimaryContact", Namespace = "http://www.starstandard.org/STAR/5")]
         public PrimaryContact PrimaryContact { get; set; }
-        [XmlElement(ElementName = "DoingBusinessAsName", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string DoingBusinessAsName { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+    }
+
+    [XmlRoot(ElementName = "ManufacturerCustomerID", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class ManufacturerCustomerID
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "ManufacturerHouseholdID", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class ManufacturerHouseholdID
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtOwnerParty", Namespace = "urn:com.gm:vls")]
     public class ExtOwnerParty
     {
         [XmlElement(ElementName = "PartyID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string PartyID { get; set; }
-        [XmlElement(ElementName = "DealerManagementSystemID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string DealerManagementSystemID { get; set; }
-        [XmlElement(ElementName = "RelationshipTypeCode", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string RelationshipTypeCode { get; set; }
+        public PartyID PartyID { get; set; }
         [XmlElement(ElementName = "SpecifiedOrganization", Namespace = "http://www.starstandard.org/STAR/5")]
         public SpecifiedOrganization SpecifiedOrganization { get; set; }
         [XmlElement(ElementName = "ManufacturerCustomerID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string ManufacturerCustomerID { get; set; }
+        public ManufacturerCustomerID ManufacturerCustomerID { get; set; }
         [XmlElement(ElementName = "ManufacturerHouseholdID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string ManufacturerHouseholdID { get; set; }
+        public ManufacturerHouseholdID ManufacturerHouseholdID { get; set; }
     }
 
-    [XmlRoot(ElementName = "ExtPartyActionEvent", Namespace = "urn:com.gm:vls")]
-    public class ExtPartyActionEvent
+    [XmlRoot(ElementName = "PartyActionEvent", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class PartyActionEvent
     {
         [XmlElement(ElementName = "EventID", Namespace = "http://www.starstandard.org/STAR/5")]
         public string EventID { get; set; }
         [XmlElement(ElementName = "EventDescription", Namespace = "http://www.starstandard.org/STAR/5")]
         public string EventDescription { get; set; }
-        [XmlElement(ElementName = "ExtEventOccurrenceDateTime", Namespace = "urn:com.gm:vls")]
+        [XmlElement(ElementName = "ExtEventOccurrenceDateTime", Namespace = "http://www.starstandard.org/STAR/5")]
         public string ExtEventOccurrenceDateTime { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtShipToParty", Namespace = "urn:com.gm:vls")]
     public class ExtShipToParty
     {
-        [XmlElement(ElementName = "ExtPartyActionEvent", Namespace = "urn:com.gm:vls")]
-        public List<ExtPartyActionEvent> ExtPartyActionEvent { get; set; }
+        [XmlElement(ElementName = "PartyActionEvent", Namespace = "http://www.starstandard.org/STAR/5")]
+        public List<PartyActionEvent> PartyActionEvent { get; set; }
     }
 
     [XmlRoot(ElementName = "ChargeAmount", Namespace = "http://www.starstandard.org/STAR/5")]
@@ -189,6 +260,8 @@ namespace WebService.Tests
         public ChargeAmount ChargeAmount { get; set; }
         [XmlElement(ElementName = "PriceDescription", Namespace = "http://www.starstandard.org/STAR/5")]
         public string PriceDescription { get; set; }
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
     }
 
     [XmlRoot(ElementName = "Pricing", Namespace = "urn:com.gm:vls")]
@@ -198,45 +271,51 @@ namespace WebService.Tests
         public List<Price> Price { get; set; }
     }
 
+    [XmlRoot(ElementName = "OptionID", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class OptionID
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "OptionTypeCode", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class OptionTypeCode
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "OptionName", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class OptionName
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlRoot(ElementName = "OptionNotes", Namespace = "http://www.starstandard.org/STAR/5")]
+    public class OptionNotes
+    {
+        [XmlAttribute(AttributeName = "ns2", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns2 { get; set; }
+    }
+
     [XmlRoot(ElementName = "Option", Namespace = "urn:com.gm:vls")]
     public class Option
     {
         [XmlElement(ElementName = "OptionID", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string OptionID { get; set; }
+        public OptionID OptionID { get; set; }
         [XmlElement(ElementName = "OptionTypeCode", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string OptionTypeCode { get; set; }
+        public OptionTypeCode OptionTypeCode { get; set; }
         [XmlElement(ElementName = "OptionName", Namespace = "http://www.starstandard.org/STAR/5")]
-        public string OptionName { get; set; }
-    }
-
-    [XmlRoot(ElementName = "OrderType", Namespace = "urn:com.gm:vls")]
-    public class OrderType
-    {
-        [XmlAttribute(AttributeName = "generalOrderType")]
-        public string GeneralOrderType { get; set; }
-        [XmlAttribute(AttributeName = "vehicleOrderType")]
-        public string VehicleOrderType { get; set; }
-    }
-
-    [XmlRoot(ElementName = "ServiceCampaign", Namespace = "urn:com.gm:vls")]
-    public class ServiceCampaign
-    {
-        [XmlElement(ElementName = "CampaignNumberString", Namespace = "urn:com.gm:vls")]
-        public string CampaignNumberString { get; set; }
-        [XmlElement(ElementName = "CampaignDispositionCode", Namespace = "urn:com.gm:vls")]
-        public string CampaignDispositionCode { get; set; }
-        [XmlElement(ElementName = "CampaignDescription", Namespace = "urn:com.gm:vls")]
-        public string CampaignDescription { get; set; }
-        [XmlElement(ElementName = "CampaignTypeCode", Namespace = "urn:com.gm:vls")]
-        public string CampaignTypeCode { get; set; }
-        [XmlElement(ElementName = "CampaignDate", Namespace = "urn:com.gm:vls")]
-        public string CampaignDate { get; set; }
-        [XmlElement(ElementName = "CampaignExpirationDate", Namespace = "urn:com.gm:vls")]
-        public string CampaignExpirationDate { get; set; }
-        [XmlElement(ElementName = "CampaignTypeDescription", Namespace = "urn:com.gm:vls")]
-        public string CampaignTypeDescription { get; set; }
-        [XmlElement(ElementName = "OriginalCampaignNumberString", Namespace = "urn:com.gm:vls")]
-        public string OriginalCampaignNumberString { get; set; }
+        public OptionName OptionName { get; set; }
+        [XmlElement(ElementName = "OptionNotes", Namespace = "http://www.starstandard.org/STAR/5")]
+        public OptionNotes OptionNotes { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtVehicleInventoryVehicleLineItem", Namespace = "urn:com.gm:vls")]
@@ -248,24 +327,14 @@ namespace WebService.Tests
         public ExtOwnerParty ExtOwnerParty { get; set; }
         [XmlElement(ElementName = "ExtShipToParty", Namespace = "urn:com.gm:vls")]
         public ExtShipToParty ExtShipToParty { get; set; }
-        [XmlElement(ElementName = "VehicleOrderNumber", Namespace = "urn:com.gm:vls")]
-        public string VehicleOrderNumber { get; set; }
-        [XmlElement(ElementName = "VehicleStockString", Namespace = "urn:com.gm:vls")]
-        public string VehicleStockString { get; set; }
         [XmlElement(ElementName = "Pricing", Namespace = "urn:com.gm:vls")]
         public Pricing Pricing { get; set; }
         [XmlElement(ElementName = "Option", Namespace = "urn:com.gm:vls")]
         public List<Option> Option { get; set; }
-        [XmlElement(ElementName = "VehicleActivityStatus", Namespace = "urn:com.gm:vls")]
-        public string VehicleActivityStatus { get; set; }
         [XmlElement(ElementName = "OrderType", Namespace = "urn:com.gm:vls")]
-        public OrderType OrderType { get; set; }
-        [XmlElement(ElementName = "InvoiceNumber", Namespace = "urn:com.gm:vls")]
-        public string InvoiceNumber { get; set; }
-        [XmlElement(ElementName = "CriticalRecallIndicator", Namespace = "urn:com.gm:vls")]
-        public string CriticalRecallIndicator { get; set; }
-        [XmlElement(ElementName = "ServiceCampaign", Namespace = "urn:com.gm:vls")]
-        public List<ServiceCampaign> ServiceCampaign { get; set; }
+        public string OrderType { get; set; }
+        [XmlElement(ElementName = "StockNumber", Namespace = "urn:com.gm:vls")]
+        public string StockNumber { get; set; }
         [XmlAttribute(AttributeName = "confidenceRating")]
         public string ConfidenceRating { get; set; }
         [XmlAttribute(AttributeName = "distance")]
@@ -280,25 +349,48 @@ namespace WebService.Tests
     public class ExtVehicleInventoryInvoice
     {
         [XmlElement(ElementName = "ExtVehicleInventoryVehicleLineItem", Namespace = "urn:com.gm:vls")]
-        public List<ExtVehicleInventoryVehicleLineItem> ExtVehicleInventoryVehicleLineItem { get; set; }
+        public ExtVehicleInventoryVehicleLineItem[] ExtVehicleInventoryVehicleLineItem { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtVehicleInventory", Namespace = "urn:com.gm:vls")]
     public class ExtVehicleInventory
     {
-        [XmlElement(ElementName = "ExtVehicleInventoryHeader", Namespace = "urn:com.gm:vls")]
-        public ExtVehicleInventoryHeader ExtVehicleInventoryHeader { get; set; }
         [XmlElement(ElementName = "ExtVehicleInventoryInvoice", Namespace = "urn:com.gm:vls")]
         public ExtVehicleInventoryInvoice ExtVehicleInventoryInvoice { get; set; }
+    }
+
+    [XmlRoot(ElementName = "ChangeStatus")]
+    public class ChangeStatus
+    {
+        [XmlElement(ElementName = "Code")]
+        public string Code { get; set; }
+        [XmlElement(ElementName = "Description")]
+        public string Description { get; set; }
+    }
+
+    [XmlRoot(ElementName = "ResponseCriteria", Namespace = "http://www.openapplications.org/oagis/9")]
+    public class ResponseCriteria
+    {
+        [XmlElement(ElementName = "ChangeStatus")]
+        public ChangeStatus ChangeStatus { get; set; }
+        [XmlAttribute(AttributeName = "oagis", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Oagis { get; set; }
+    }
+
+    [XmlRoot(ElementName = "ExtShow", Namespace = "urn:com.gm:vls")]
+    public class ExtShow
+    {
+        [XmlElement(ElementName = "ResponseCriteria", Namespace = "http://www.openapplications.org/oagis/9")]
+        public ResponseCriteria ResponseCriteria { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtShowVehicleInventoryDataArea", Namespace = "urn:com.gm:vls")]
     public class ExtShowVehicleInventoryDataArea
     {
-        [XmlElement(ElementName = "ExtShow", Namespace = "urn:com.gm:vls")]
-        public ExtShow ExtShow { get; set; }
         [XmlElement(ElementName = "ExtVehicleInventory", Namespace = "urn:com.gm:vls")]
         public ExtVehicleInventory ExtVehicleInventory { get; set; }
+        [XmlElement(ElementName = "ExtShow", Namespace = "urn:com.gm:vls")]
+        public ExtShow ExtShow { get; set; }
     }
 
     [XmlRoot(ElementName = "ExtShowVehicleInventory", Namespace = "urn:com.gm:vls")]
@@ -308,16 +400,53 @@ namespace WebService.Tests
         public ExtApplicationArea ExtApplicationArea { get; set; }
         [XmlElement(ElementName = "ExtShowVehicleInventoryDataArea", Namespace = "urn:com.gm:vls")]
         public ExtShowVehicleInventoryDataArea ExtShowVehicleInventoryDataArea { get; set; }
-        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-        public string SchemaLocation { get; set; }
-        [XmlAttribute(AttributeName = "star", Namespace = "http://www.w3.org/2000/xmlns/")]
-        public string Star { get; set; }
-        [XmlAttribute(AttributeName = "xsi", Namespace = "http://www.w3.org/2000/xmlns/")]
-        public string Xsi { get; set; }
-        [XmlAttribute(AttributeName = "udt", Namespace = "http://www.w3.org/2000/xmlns/")]
-        public string Udt { get; set; }
-        [XmlAttribute(AttributeName = "vls", Namespace = "http://www.w3.org/2000/xmlns/")]
-        public string Vls { get; set; }
+        [XmlAttribute(AttributeName = "inp1", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Inp1 { get; set; }
+        [XmlAttribute(AttributeName = "ns99", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Ns99 { get; set; }
+    }
+
+    [XmlRoot(ElementName = "content", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]
+    public class Content
+    {
+        [XmlElement(ElementName = "ExtShowVehicleInventory", Namespace = "urn:com.gm:vls")]
+        public ExtShowVehicleInventory ExtShowVehicleInventory { get; set; }
+    }
+
+    [XmlRoot(ElementName = "payload", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]
+    public class Payload
+    {
+        [XmlElement(ElementName = "content", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]
+        public Content Content { get; set; }
+    }
+
+    [XmlRoot(ElementName = "ProcessMessageResponse", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]
+    public class ProcessMessageResponse
+    {
+        [XmlElement(ElementName = "payload", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]
+        public Payload Payload { get; set; }
+        [XmlAttribute(AttributeName = "tran", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Tran { get; set; }
+    }
+
+    [XmlRoot(ElementName = "Body", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
+    public class Body
+    {
+        [XmlElement(ElementName = "ProcessMessageResponse", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]
+        public ProcessMessageResponse ProcessMessageResponse { get; set; }
+        [XmlAttribute(AttributeName = "env", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Env { get; set; }
+        [XmlAttribute(AttributeName = "wsa", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Wsa { get; set; }
+    }
+
+    [XmlRoot(ElementName = "Envelope", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
+    public class Envelope
+    {
+        [XmlElement(ElementName = "Body", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
+        public Body Body { get; set; }
+        [XmlAttribute(AttributeName = "soapenv", Namespace = "http://www.w3.org/2000/xmlns/")]
+        public string Soapenv { get; set; }
     }
 
 }

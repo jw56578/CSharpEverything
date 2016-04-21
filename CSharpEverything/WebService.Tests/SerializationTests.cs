@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static WebService.Tests.Functions;
+using WebService.Tests.ProxyClasses;
 
 namespace WebService.Tests
 {
@@ -10,11 +11,20 @@ namespace WebService.Tests
         [TestMethod]
         public void CanSerializeWithNamespace()
         {
-            var result = Serialize<ExtGetVehicleInventory>(CreateMinimalMessage());
 
-            Assert.IsFalse(string.IsNullOrEmpty(result));
-            Assert.IsTrue(result.Contains("vls:"),"vls namespace was not added");
-            Assert.IsTrue(result.Contains("star:"), "star namespace was not added");
         }
+
+        [TestMethod]
+        public void CanSerializeHeader()
+        {
+
+        }
+
+        [TestMethod]
+        public void CanDeserializeResponse()
+        {
+            var searchresult = Deserialize<Envelope>(SampleXML.InventorySearchResponse);
+        }
+
     }
 }

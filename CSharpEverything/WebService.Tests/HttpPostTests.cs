@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static WebService.Tests.Functions;
+using WebService.Tests.Star.GM;
 
 namespace WebService.Tests
 {
@@ -22,18 +24,10 @@ namespace WebService.Tests
             template = string.Format(template, SampleXML.Header, SampleXML.ExtGetVehicleInventoryMinimum);
             Functions.HttpPOST("https://gmb2c.pp.gm.com/VehicleLocatorService/services/ProcessMessage?wsdl", template);
         }
-
         [TestMethod]
         public void CanPostRawDataFromTemplateAndSerializedObjetToEndPoint()
         {
-            var template = SampleXML.EnvelopeTemplate;
-            
-            var result = Functions.Serialize<ExtGetVehicleInventory>(Functions.CreateMinimalMessage());
-            template = string.Format(template, SampleXML.Header, result);
 
-            Functions.HttpPOST("https://gmb2c.pp.gm.com/VehicleLocatorService/services/ProcessMessage?wsdl", template);
         }
-
-
     }
 }

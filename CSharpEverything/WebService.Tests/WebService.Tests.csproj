@@ -57,9 +57,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Star\Criteria.cs" />
+    <Compile Include="Star\Functions\CreateHeader.cs" />
+    <Compile Include="Star\GM\GMInventorySearch.cs" />
+    <Compile Include="Star\GM\GMVehicleSearch.cs" />
+    <Compile Include="Star\Header.cs" />
     <Compile Include="SerializationTests.cs" />
+    <Compile Include="Star\GM\GMHeader.cs" />
+    <Compile Include="Star\GM\GMStarImplementation.cs" />
+    <Compile Include="Star\SearchInventoryCriteria.cs" />
+    <Compile Include="Star\SearchVehicleCriteria.cs" />
+    <Compile Include="Star\StarImplementation.cs" />
+    <Compile Include="Star\StarRequest.cs" />
+    <Compile Include="StarTests.cs" />
+    <Compile Include="StarVehicleSearchTests.cs" />
     <Compile Include="WebService\ExtendSecurity.cs" />
-    <Compile Include="Functions.cs" />
+    <Compile Include="Star\Functions\Functions.cs" />
     <Compile Include="ProxyClasses\ManuallyGeneratedProxyClass.cs" />
     <Compile Include="ProxyClasses\ManuallyGeneratedProxyClass2.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -122,6 +135,7 @@
       <LastGenOutput>SampleXML.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
