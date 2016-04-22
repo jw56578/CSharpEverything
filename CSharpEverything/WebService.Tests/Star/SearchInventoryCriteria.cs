@@ -13,6 +13,8 @@ namespace WebService.Tests.Star
         public State? State { get; set; }
         public Company? Company { get; set; }
         public OutputToInclude? OutputToInclude { get; set; }
+        public int MaxItems { get; set; }
+        
 
 
     }

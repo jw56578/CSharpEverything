@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace WebService.Tests.Star.GM
 {
-    public static class GMInventorySearch
+    public class GMInventorySearch
     {
-        public static ExtGetVehicleInventory GetSearch(SearchInventoryCriteria criteria)
+        GMStarImplementation implementer;
+        public GMInventorySearch(GMStarImplementation implementer)
+        {
+            this.implementer = implementer;
+        }
+        public ExtGetVehicleInventory GetSearch(SearchInventoryCriteria criteria)
         {
             if (criteria.Zipcode.HasValue)
                 return GetZicodeSearch(criteria);
@@ -20,7 +25,7 @@ namespace WebService.Tests.Star.GM
                 return GetStateSearch(criteria);
             return null;
         }
-        static ExtGetVehicleInventory GetStateSearch(SearchInventoryCriteria criteria)
+        ExtGetVehicleInventory GetStateSearch(SearchInventoryCriteria criteria)
         {
             var inv = Create(criteria);
             var region = inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchByRegion = new SearchByRegion();
@@ -28,14 +33,14 @@ namespace WebService.Tests.Star.GM
             region.RegionCode.Add(criteria.State.Value.RegionCode);
             return inv;
         }
-        static ExtGetVehicleInventory GetCompanySearch(SearchInventoryCriteria criteria)
+        ExtGetVehicleInventory GetCompanySearch(SearchInventoryCriteria criteria)
         {
             var inv = Create(criteria);
             var vendor = inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchBySingleVendor = new SearchBySingleVendor();
             vendor.VendorId = criteria.Company.Value.Id;
             return inv;
         }
-        static ExtGetVehicleInventory GetZicodeSearch(SearchInventoryCriteria criteria)
+        ExtGetVehicleInventory GetZicodeSearch(SearchInventoryCriteria criteria)
         {
             var inv = Create(criteria);
             var pc = inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchByPostalCode = new SearchByPostalCode();
@@ -43,7 +48,7 @@ namespace WebService.Tests.Star.GM
             pc.PostalCode = criteria.Zipcode.Value.PostalCode;
             return inv;
         }
-        static ExtGetVehicleInventory GetCitySearch(SearchInventoryCriteria criteria)
+        ExtGetVehicleInventory GetCitySearch(SearchInventoryCriteria criteria)
         {
             var inv = Create(criteria);
             var sbc = inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchByCity = new SearchByCity();
@@ -52,18 +57,18 @@ namespace WebService.Tests.Star.GM
             sbc.City = criteria.City.Value.Name;
             return inv;
         }
-        static ExtGetVehicleInventory Create(SearchInventoryCriteria criteria)
+        ExtGetVehicleInventory Create(SearchInventoryCriteria criteria)
         {
             ExtGetVehicleInventory inv = new ExtGetVehicleInventory();
             inv.ExtApplicationArea = new ExtApplicationArea();
             inv.ExtApplicationArea.CreationDateAndTime = DateTime.UtcNow.ToString("o");
 
-            CreateHardCoded(inv);
-            CreateVehicleSpec(inv);
-            CreateOutputSpec(inv);
+            CreateCredentials(inv,criteria);
+            CreateVehicleSpec(inv, criteria);
+            CreateOutputSpec(inv, criteria);
             return inv;
         }
-        static void CreateVehicleSpec(ExtGetVehicleInventory inv)
+        void CreateVehicleSpec(ExtGetVehicleInventory inv, SearchInventoryCriteria criteria)
         {
             var vs = inv.ExtGetVehicleInventoryDataArea.ExtGet.VehicleSpecification = new VehicleSpecification();
             vs.MakeCode = "001";
@@ -72,7 +77,7 @@ namespace WebService.Tests.Star.GM
             vs.Year = "2015";
 
         }
-        static void CreateOutputSpec(ExtGetVehicleInventory inv)
+        void CreateOutputSpec(ExtGetVehicleInventory inv, SearchInventoryCriteria criteria)
         {
             //minimal required outputspecifications
             var o = inv.ExtGetVehicleInventoryDataArea.ExtGet.OutputSpecification = new OutputSpecification();
@@ -85,34 +90,29 @@ namespace WebService.Tests.Star.GM
             o.OptionDescriptionType = "DEFAULT";
 
         }
-        static void CreateHardCoded(ExtGetVehicleInventory inv)
+        void CreateCredentials(ExtGetVehicleInventory inv, SearchInventoryCriteria criteria)
         {
             var d = inv.ExtApplicationArea.Destination = new Destination();
-            d.DestinationNameCode = "VLS";
-            d.DestinationSoftwareCode = "VLS Locate Service";
+            d.DestinationNameCode = implementer.DestinationNameCode;
+            d.DestinationSoftwareCode = implementer.DestinationSoftwareCode;
             var e = inv.ExtApplicationArea.ExtSender = new ExtSender();
-            e.CreatorNameCode = "ELEAD";
-            e.SenderNameCode = "EL";
-            e.DealerNumberID = "113730"; // /is this eleads or what? 
-            e.ExtDealerCountryCode = "US";
-            e.TaskID = "Locate Vehicle";
-            e.ComponentID = "Locate Module";
-            e.ExtLanguageCode = "en-US";
-
+            e.CreatorNameCode = implementer.CreatorNameCode;
+            e.SenderNameCode = implementer.SenderNameCode;
+            e.DealerNumberID = implementer.DealerNumberID;
+            e.ExtDealerCountryCode = implementer.ExtDealerCountryCode;
+            e.TaskID = implementer.TaskID;
+            e.ComponentID = implementer.ComponentID;
+            e.ExtLanguageCode = implementer.ExtLanguageCode;
 
             inv.ExtGetVehicleInventoryDataArea = new ExtGetVehicleInventoryDataArea();
             var g = inv.ExtGetVehicleInventoryDataArea.ExtGet = new ExtGet();
             g.SearchCriteria = new SearchCriteria();
 
-
-
-            var f = g.FilterCriteria = new FilterCriteria();
-            f.EarliestEventCode = "3000";
+            //var f = g.FilterCriteria = new FilterCriteria();
+            //f.EarliestEventCode = "3000";
             //10/20/30/40/50
-            g.ExtMaxItems = "20";
+            g.ExtMaxItems = criteria.MaxItems.ToString();
             g.Expression = " ";
-
-
 
         }
     }

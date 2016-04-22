@@ -14,6 +14,85 @@ namespace WebService.Tests.Star.GM
         Func<string> getContentxml = null;
         Func<string> getHeader = null;
 
+   
+         
+           
+
+
+
+
+        public string DestinationNameCode
+        {
+            get
+            {
+                return "VLS";
+            }
+        }
+
+        public string DestinationSoftwareCode
+        {
+            get
+            {
+                return "VLS Locate Service";
+            }
+        }
+
+        public string CreatorNameCode
+        {
+            get
+            {
+                return "ELEAD";
+            }
+        }
+
+        public string SenderNameCode
+        {
+            get
+            {
+                return "EL";
+            }
+        }
+
+        public string DealerNumberID
+        {
+            get
+            {
+                return bac;
+            }
+        }
+     
+        public string ExtDealerCountryCode
+        {
+            get
+            {
+                return "US";
+            }
+        }
+
+        public string TaskID
+        {
+            get
+            {
+                return "Locate Vehicle";
+            }
+        }
+
+        public string ComponentID
+        {
+            get
+            {
+                return "Locate Module";
+            }
+        }
+
+        public string ExtLanguageCode
+        {
+            get
+            {
+                return "en-US"; 
+            }
+        }
+
         public GMStarImplementation(string bac)
         {
             this.bac = bac;
@@ -26,7 +105,8 @@ namespace WebService.Tests.Star.GM
         }
         string GetInventorySearch()
         {
-            var inv = GMInventorySearch.GetSearch(criteria.SearchCriteria);
+            var search = new GMInventorySearch(this);
+            var inv = search.GetSearch(criteria.SearchCriteria);
             return Functions.Serialize<ExtGetVehicleInventory>(inv);
         }
         public string GetContentXml()
