@@ -41,5 +41,34 @@ namespace WebService.Tests.Star
             });
             return Search();
         }
+        public IEnumerable<object> SearchInventoryByState(string stateCode)
+        {
+            implementer.SetCriteria(new Criteria()
+            {
+                SearchCriteria = new SearchInventoryCriteria()
+                {
+                    State = new State() {
+                        RegionCode = stateCode
+                   }
+                }
+            });
+            return Search();
+        }
+        public IEnumerable<object> SearchInventoryByCity(string stateCode,string city, int proximity)
+        {
+            implementer.SetCriteria(new Criteria()
+            {
+                SearchCriteria = new SearchInventoryCriteria()
+                {
+                    City = new City()
+                    {
+                        RegionCode = stateCode,
+                        Proximity = proximity,
+                        Name = city
+                    }
+                }
+            });
+            return Search();
+        }
     }
 }
