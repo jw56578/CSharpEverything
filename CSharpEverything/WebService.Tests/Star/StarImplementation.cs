@@ -13,6 +13,7 @@ namespace WebService.Tests.Star
         string GetContentXml();
         void SetCriteria(Criteria criteria);
         IEnumerable<object> HandleSearchInventoryResponse(string responseXml);
+        IEnumerable<object> HandleResponse(string responseXml);
     }
     public interface IStarVehicleSearchImplementation: IStarImplementation
     {

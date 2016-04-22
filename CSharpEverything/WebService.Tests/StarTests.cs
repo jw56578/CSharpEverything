@@ -9,16 +9,6 @@ namespace WebService.Tests
     public class StarTests
     {
         [TestMethod]
-        public void CanSearchInventoryByZipcode()
-        {
-            var gm = new GMStarImplementation("999970");
-            var sr = new Star.StarRequest(gm);
-            sr.SearchInventoryByZipcode("30062", 200);
-
-        }
-
-
-        [TestMethod]
         public void CanSearchInventory()
         {
             /*

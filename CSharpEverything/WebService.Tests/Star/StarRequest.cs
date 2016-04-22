@@ -9,17 +9,14 @@ namespace WebService.Tests.Star
 {
     public partial class StarRequest
     {
-        string header;
-        string url;
         IStarImplementation implementer;
+        string template = SampleXML.EnvelopeTemplate;
         public StarRequest(IStarImplementation implementer)
         {
-            url = implementer.GetUrl();
             this.implementer = implementer;
         }
-        public void SearchInventoryByZipcode(string zip, int proximity)
+        public IEnumerable<object> SearchInventoryByZipcode(string zip, int proximity)
         {
-            var template = SampleXML.EnvelopeTemplate;
             implementer.SetCriteria(new Criteria()
             {
                 SearchCriteria = new SearchInventoryCriteria()
@@ -31,22 +28,24 @@ namespace WebService.Tests.Star
                     }
                 }
             });
-            header = implementer.GetHeaderXML();
+            return Search();
+        }
+        IEnumerable<object> Search()
+        {
+            var header = implementer.GetHeaderXML();
             var content = implementer.GetContentXml();
-            template = string.Format(template, header, content);
-           
-            var response = Functions.HttpPOST(url, template);
-            var resuls = implementer.HandleSearchInventoryResponse(response);
-          
+            var envelope = string.Format(template, header, content);
+            var response = Functions.HttpPOST(implementer.GetUrl(), envelope);
+            var results = implementer.HandleSearchInventoryResponse(response);
+            return results;
 
         }
         public void SearchInventory()
         {
             SearchCompanyInventory("EL_115275");
         }
-        public void SearchCompanyInventory(string id)
+        public IEnumerable<object> SearchCompanyInventory(string id)
         {
-            var template = SampleXML.EnvelopeTemplate;
             implementer.SetCriteria(new Criteria()
             {
                 SearchCriteria = new SearchInventoryCriteria()
@@ -57,17 +56,11 @@ namespace WebService.Tests.Star
                     }
                 }
             });
-            header = implementer.GetHeaderXML();
-            var content = implementer.GetContentXml();
-            template = string.Format(template, header, content);
-
-            var response = Functions.HttpPOST(url, template);
-            var resuls = implementer.HandleSearchInventoryResponse(response);
+            return Search();
         }
 
-        public void GetYears()
+        public IEnumerable<object> GetYears()
         {
-            var template = SampleXML.EnvelopeTemplate;
             implementer.SetCriteria(new Criteria()
             {
                 SearchVehicleCriteria = new SearchVehicleCriteria()
@@ -75,12 +68,7 @@ namespace WebService.Tests.Star
 
                 }
             });
-            header = implementer.GetHeaderXML();
-            var content = implementer.GetContentXml();
-            template = string.Format(template, header, content);
-
-            var response = Functions.HttpPOST(url, template);
-            var resuls = implementer.HandleSearchInventoryResponse(response);
+            return Search();
         }
 
     }

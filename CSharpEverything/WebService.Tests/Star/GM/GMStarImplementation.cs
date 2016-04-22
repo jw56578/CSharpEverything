@@ -92,5 +92,10 @@ namespace WebService.Tests.Star.GM
                 getContentxml = GetVehicleSearch;
             }
         }
+
+        public IEnumerable<object> HandleResponse(string responseXml)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
