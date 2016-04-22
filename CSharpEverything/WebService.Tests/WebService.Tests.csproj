@@ -66,12 +66,14 @@
     <Compile Include="SerializationTests.cs" />
     <Compile Include="Star\GM\GMHeader.cs" />
     <Compile Include="Star\GM\GMStarImplementation.cs" />
+    <Compile Include="Star\Inventory\StarRequest.cs" />
     <Compile Include="Star\SearchInventoryCriteria.cs" />
     <Compile Include="Star\SearchVehicleCriteria.cs" />
     <Compile Include="Star\StarImplementation.cs" />
     <Compile Include="Star\StarRequest.cs" />
     <Compile Include="StarTests.cs" />
     <Compile Include="StarVehicleSearchTests.cs" />
+    <Compile Include="Star\Vehicle\StarRequest.cs" />
     <Compile Include="VehicleSelectorTests.cs" />
     <Compile Include="VehicleLocatorTests.cs" />
     <Compile Include="WebService\ExtendSecurity.cs" />
