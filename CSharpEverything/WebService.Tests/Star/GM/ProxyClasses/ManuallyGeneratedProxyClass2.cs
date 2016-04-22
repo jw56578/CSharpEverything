@@ -411,6 +411,8 @@ namespace WebService.Tests.ProxyClasses
     {
         [XmlElement(ElementName = "ExtShowVehicleInventory", Namespace = "urn:com.gm:vls")]
         public ExtShowVehicleInventory ExtShowVehicleInventory { get; set; }
+        [XmlElement(ElementName = "ExtShowVehicleSpecifications", Namespace = "urn:com.gm:vls")]
+        public ExtShowVehicleSpecifications ExtShowVehicleSpecifications { get; set; }
     }
 
     [XmlRoot(ElementName = "payload", Namespace = "http://www.starstandards.org/webservices/2005/10/transport")]

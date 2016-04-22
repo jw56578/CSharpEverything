@@ -62,6 +62,7 @@
     <Compile Include="Star\Functions\CreateHeader.cs" />
     <Compile Include="Star\GM\GMInventorySearch.cs" />
     <Compile Include="Star\GM\GMVehicleSearch.cs" />
+    <Compile Include="Star\GM\ProxyClasses\ExtShowVehicleSpecifications.cs" />
     <Compile Include="Star\Header.cs" />
     <Compile Include="SerializationTests.cs" />
     <Compile Include="Star\GM\GMHeader.cs" />
@@ -78,8 +79,8 @@
     <Compile Include="VehicleLocatorTests.cs" />
     <Compile Include="WebService\ExtendSecurity.cs" />
     <Compile Include="Star\Functions\Functions.cs" />
-    <Compile Include="ProxyClasses\ManuallyGeneratedProxyClass.cs" />
-    <Compile Include="ProxyClasses\ManuallyGeneratedProxyClass2.cs" />
+    <Compile Include="Star\GM\ProxyClasses\ManuallyGeneratedProxyClass.cs" />
+    <Compile Include="Star\GM\ProxyClasses\ManuallyGeneratedProxyClass2.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

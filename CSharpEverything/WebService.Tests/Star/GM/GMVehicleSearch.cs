@@ -12,6 +12,11 @@ namespace WebService.Tests.Star.GM
         {
             if (string.IsNullOrEmpty(criteria.Year))
                 return GetYearSearch(criteria);
+            if (string.IsNullOrEmpty(criteria.Make))
+                return GetYearSearch(criteria);
+            if (string.IsNullOrEmpty(criteria.ModelCode))
+                return GetYearSearch(criteria);
+
             return null;
         }
         static ExtGetVehicleSpecifications GetYearSearch(SearchVehicleCriteria criteria)
