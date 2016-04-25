@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="default.ashx" />
+    <Content Include="api\Index.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -84,8 +87,16 @@
     <Content Include="UseIOCService.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\GMVehicleSelector.cs" />
+    <Compile Include="api\Resolver.cs" />
+    <Compile Include="default.ashx.cs">
+      <DependentUpon>default.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="api\Index.ashx.cs">
+      <DependentUpon>Index.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UseConcreteClassService.asmx.cs">

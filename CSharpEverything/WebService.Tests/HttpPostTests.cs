@@ -15,7 +15,7 @@ namespace WebService.Tests
         [TestMethod]
         public void CanPostRawDataToEndPoint()
         {
-            Functions.HttpPOST("https://gmb2c.pp.gm.com/VehicleLocatorService/services/ProcessMessage?wsdl", SampleXML.WorkingSOAPEnvelopeXMLMinimum);
+            var result = Functions.HttpPOST("https://gmb2c.pp.gm.com/VehicleLocatorService/services/ProcessMessage?wsdl", SampleXML.WorkingSOAPEnvelopeXMLMinimum);
         }
         [TestMethod]
         public void CanPostRawDataFromTemplateToEndPoint()

@@ -25,6 +25,14 @@ namespace WebService.Tests.Star.GM
                 return GetStateSearch(criteria);
             return null;
         }
+        ExtGetVehicleInventory GetVINSearch(SearchInventoryCriteria criteria)
+        {
+            var inv = Create(criteria);
+            var region = inv.ExtGetVehicleInventoryDataArea.ExtGet.SearchCriteria.SearchByVin = new SearchByVin();
+            region.VinNumber = "";
+            region.PostalCode = "";
+            return inv;
+        }
         ExtGetVehicleInventory GetStateSearch(SearchInventoryCriteria criteria)
         {
             var inv = Create(criteria);
@@ -64,17 +72,18 @@ namespace WebService.Tests.Star.GM
             inv.ExtApplicationArea.CreationDateAndTime = DateTime.UtcNow.ToString("o");
 
             CreateCredentials(inv,criteria);
-            CreateVehicleSpec(inv, criteria);
+            if(criteria.Vehicle.HasValue)
+                CreateVehicleSpec(inv, criteria);
             CreateOutputSpec(inv, criteria);
             return inv;
         }
         void CreateVehicleSpec(ExtGetVehicleInventory inv, SearchInventoryCriteria criteria)
         {
             var vs = inv.ExtGetVehicleInventoryDataArea.ExtGet.VehicleSpecification = new VehicleSpecification();
-            vs.MakeCode = "001";
-            vs.MerchandisingModelDesignator = "12P43";
-            vs.SellingSourceCode = "13";
-            vs.Year = "2015";
+            vs.MakeCode = criteria.Vehicle.Value.MakeCode;
+            //vs.MerchandisingModelDesignator = "12P43";
+            //vs.SellingSourceCode = "13";
+            vs.Year = criteria.Vehicle.Value.Year;
 
         }
         void CreateOutputSpec(ExtGetVehicleInventory inv, SearchInventoryCriteria criteria)

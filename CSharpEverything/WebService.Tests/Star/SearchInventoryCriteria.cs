@@ -14,10 +14,17 @@ namespace WebService.Tests.Star
         public Company? Company { get; set; }
         public OutputToInclude? OutputToInclude { get; set; }
         public int MaxItems { get; set; }
-        
+        public Vehicle? Vehicle { get; set; }
 
 
     }
+    public struct Vehicle
+    {
+        public string Vin { get; set; }
+        public string Year { get; set; }
+        public string MakeCode { get; set; }
+    }
+
     public struct OutputToInclude
     {
         public bool IncludeModelInfo { get; set; }

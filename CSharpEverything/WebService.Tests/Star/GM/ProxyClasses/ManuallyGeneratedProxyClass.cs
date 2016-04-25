@@ -52,6 +52,17 @@ the xsd.exe is not reliable
         [XmlElement(ElementName = "Destination", Namespace = "urn:com.gm:vls")]
         public Destination Destination { get; set; }
     }
+    [XmlRoot(ElementName = "SearchByVin", Namespace = "urn:com.gm:vls")]
+    public class SearchByVin
+    {
+        [XmlElement(ElementName = "VinNumber", Namespace = "urn:com.gm:vls")]
+        public string VinNumber
+        {
+            get; set;
+        }
+        [XmlElement(ElementName = "PostalCode", Namespace = "urn:com.gm:vls")]
+        public string PostalCode { get; set; }
+    }
 
     [XmlRoot(ElementName = "SearchByCity", Namespace = "urn:com.gm:vls")]
     public class SearchByCity
@@ -120,6 +131,8 @@ the xsd.exe is not reliable
     [XmlRoot(ElementName = "SearchCriteria", Namespace = "urn:com.gm:vls")]
     public class SearchCriteria
     {
+        [XmlElement(ElementName = "SearchByVin", Namespace = "urn:com.gm:vls")]
+        public SearchByVin SearchByVin { get; set; }
         [XmlElement(ElementName = "SearchByCity", Namespace = "urn:com.gm:vls")]
         public SearchByCity SearchByCity { get; set; }
         [XmlElement(ElementName = "SearchByMultipleVendor", Namespace = "urn:com.gm:vls")]
