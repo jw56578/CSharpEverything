@@ -64,6 +64,7 @@
     <Compile Include="OperatorOverload.cs" />
     <Compile Include="Struct.cs" />
     <Compile Include="Process.cs" />
+    <Compile Include="NumberParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

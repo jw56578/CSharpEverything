@@ -44,16 +44,6 @@ namespace WebService.Tests
                           return true;
                       });
         }
-        public static Payload GetProxyPayload()
-        {
-            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(Payload));
-            object result;
-            using (TextReader reader = new StringReader(SampleXML.SerializedPayloadTemplate))
-            {
-                result = serializer.Deserialize(reader);
-            }
-            return result as Payload;
-        }
         public static string Serialize<T>(object obj)
         {
             var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
