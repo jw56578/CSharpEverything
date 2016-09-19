@@ -52,7 +52,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IQueryableExplained.cs" />
+    <Compile Include="IQueryable\IQueryableExplained.cs" />
+    <Compile Include="IQueryable\IQueryableTutorial.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Trampoline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
